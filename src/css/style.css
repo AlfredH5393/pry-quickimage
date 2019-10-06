@@ -1,55 +1,42 @@
-.seagreen {
-  color: #1ABC9C; }
-
-.gris {
-  color: #2C3E50; }
-
-.negromate {
-  color: #040F0F; }
-
-.purple {
-  color: #454ADE; }
-
-.bluefrance {
-  color: #3498DB; }
-
-.container-login {
-  height: 100%;
+.login-cont {
+  /* The image used */
+  height: 1000px;
   background-image: url("../img/background_login.jpg");
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(2px);
+  /* Full height */
+  /* Center and scale the image nicely */
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center center;
-  filter: blur(5px); }
+  background-size: cover; }
 
 .login {
-  height: 100%;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  padding-top: 150px;
-  padding-bottom: 150px; }
-
-.form-signin {
+  background-color: #FFFFFF;
+  /* Black w/opacity/see-through */
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-  background: #FFFFFF;
-  border-radius: 10px 10px; }
+  max-width: 350px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px 10px;
+  color: #040F0F; }
+
+.year-p {
+  color: #2C3E50; }
 
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
   height: auto;
   padding: 10px;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #040F0F; }
 
 .form-signin .form-control:focus {
   z-index: 2; }
@@ -62,3 +49,18 @@
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0; }
+
+.registera {
+  display: block;
+  margin: 10px auto;
+  text-decoration: none;
+  background: #2C3E50;
+  color: #FFFFFF;
+  padding: 10px;
+  transition: all .3s;
+  border-radius: 0.3rem; }
+
+.registera:hover {
+  text-decoration: none;
+  background: #040F0F;
+  color: #FFFFFF; }

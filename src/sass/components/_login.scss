@@ -1,36 +1,40 @@
-.container-login{
-    height: 100%;
-    background-image: url('../img/background_login.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-    filter: blur(5px);
+.login-cont{
+    /* The image used */
+    height: 1000px;
+  background-image: url("../img/background_login.jpg");
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(2px);
+  /* Full height */
+    
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.login{
-    height: 100%;
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: flex;
-    -ms-flex-align: center;
-    -ms-flex-pack: center;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    
-}
-.form-signin {
+.login {
+    // background-color: rgb(71, 69, 69); /* Fallback color */
+     background-color:$white; /* Black w/opacity/see-through */
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
     width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-    background: $white;
+    max-width: 350px;
+    padding: 20px;
+    text-align: center;
     border-radius: 10px 10px;
+   color: $black;
+    
   }
+
+  .year-p{
+      color: $gray;
+  }
+
   
 .form-signin .form-control {
   position: relative;
@@ -38,6 +42,7 @@
   height: auto;
   padding: 10px;
   font-size: 16px;
+  color: $black;
 }
 .form-signin .form-control:focus {
   z-index: 2;
@@ -50,3 +55,20 @@
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;}
+
+.registera{
+    display: block;
+    margin: 10px auto;
+    text-decoration: none;
+    background: $gray;
+    color:$white; 
+    padding: 10px;
+    transition: all .3s;
+    border-radius: 0.3rem;
+}
+
+.registera:hover{
+    text-decoration: none; 
+    background: $black;
+    color: $white;
+}

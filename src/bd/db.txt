@@ -1,0 +1,113 @@
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`dbquickimage` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `dbquickimage`;
+
+DROP TABLE IF EXISTS `tblroles`;
+
+CREATE TABLE `tblroles` (
+  `idRol` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`idRol`),
+  UNIQUE KEY `wasdsadsa` (`Nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `tblusuarios`;
+
+CREATE TABLE `tblusuarios` (
+  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `vchNombre` varchar(40) DEFAULT NULL,
+  `vchAppeliidoP` varchar(30) DEFAULT NULL,
+  `vchApellidoM` varchar(30) DEFAULT NULL,
+  `vchCorreo` varchar(100) DEFAULT NULL,
+  `vchUsuario` varchar(20) DEFAULT NULL,
+  `vchContraseña` varchar(32) DEFAULT NULL,
+  `imgPerfil` varchar(60) DEFAULT NULL,
+  `fk_Rol` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idUsuario`),
+  KEY `fk_RolUsuario` (`fk_Rol`),
+  CONSTRAINT `fk_RolUsuario` FOREIGN KEY (`fk_Rol`) REFERENCES `tblroles` (`idRol`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `tblcategoria`;
+
+CREATE TABLE `tblcategoria` (
+  `idCategoria` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`idCategoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblcategoria` */
+
+/*Table structure for table `tbldescargas` */
+
+DROP TABLE IF EXISTS `tbldescargas`;
+
+CREATE TABLE `tbldescargas` (
+  `idDescarga` int(11) NOT NULL AUTO_INCREMENT,
+  `PNG` varchar(50) DEFAULT NULL,
+  `JPG` varchar(50) DEFAULT NULL,
+  `fk_Imagen` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idDescarga`),
+  KEY `fk_DescargarImagenes` (`fk_Imagen`),
+  CONSTRAINT `fk_DescargarImagenes` FOREIGN KEY (`fk_Imagen`) REFERENCES `tblimagenes` (`idImagen`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbldescargas` */
+
+/*Table structure for table `tblimagenes` */
+
+DROP TABLE IF EXISTS `tblimagenes`;
+
+CREATE TABLE `tblimagenes` (
+  `idImagen` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `Descripcion` varchar(100) DEFAULT NULL,
+  `fk_Categoria` int(11) DEFAULT NULL,
+  `fk_Usuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idImagen`),
+  KEY `fk_ImagenesCategoria` (`fk_Categoria`),
+  KEY `fk_ImagenesUsuario` (`fk_Usuario`),
+  CONSTRAINT `fk_ImagenesCategoria` FOREIGN KEY (`fk_Categoria`) REFERENCES `tblcategoria` (`idCategoria`),
+  CONSTRAINT `fk_ImagenesUsuario` FOREIGN KEY (`fk_Usuario`) REFERENCES `tblusuarios` (`idUsuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tblimagenes` */
+
+/*Table structure for table `tblroles` */
+
+
+
+/*Data for the table `tblroles` */
+
+insert  into `tblroles`(`idRol`,`Nombre`) values (29,'2'),(49,'22'),(55,'3'),(59,'asd'),(60,'sadsadsadsadsad');
+
+/*Table structure for table `tblusuarios` */
+
+
+
+/*Data for the table `tblusuarios` */
+
+/* Procedure structure for procedure `SP_Roles` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `SP_Roles` */;
+
+DELIMITER $$
+
+
+BEGIN
+	if tipo = 'insert' then
+		INSERT INTO `dbquickimage`.`tblroles`(`Nombre`)VALUES (nombre);
+	end if;
+	if tipo = 'update' then
+		UPDATE `dbquickimage`.`tblroles` SET  `Nombre` = nombre WHERE `idRol` = codigo;
+	end if;
+	IF tipo = 'delete' THEN
+		delete from tblroles where idRol=codigo;
+	END IF;
+	IF tipo = 'select' THEN
+		select * from tblroles;
+	END IF;
+    END 
+DELIMITER ;

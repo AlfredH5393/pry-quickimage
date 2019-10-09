@@ -2,10 +2,10 @@
 
 class conexion
 {
-    const user='antonio';
-    const pass='123';
+    const user='root';
+    const pass='';
     const db='dbquickimage';
-    const servidor='192.168.1.73';
+    const servidor='localhost';
     // const user='toolcrea_turismo';
     // const pass='12345';
     // const db='toolcrea_bdturismo';

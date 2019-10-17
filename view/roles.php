@@ -21,7 +21,7 @@
             require("sidebar.html");
            ?>
 
-        <div class="content">
+        <div id="content">
             <?php
                   require("header.html");
                 ?>
@@ -78,8 +78,7 @@
                             </table>
                         </div>
                     </div>
-                    <div style="visibility: hidden">Collapsible Sidebar Using Bootstrap 4sadsadsasd
-                        sadsadsadsadbsakdgshagdgsahdghsagsadsadsadsadsadsadsasadsadsadshagdhsgahdsahgdshagdsha</div>
+                    
 
                     <!--- MODALES -->
                     <!--- MODAL NUEVO -->

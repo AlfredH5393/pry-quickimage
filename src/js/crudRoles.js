@@ -17,21 +17,21 @@ const rol = new Vue({
         cargaTabla: function () {
             let formdata = new FormData();
             formdata.append("option", "showdata")
-            axios.post("http://localhost/7moProyecto/pry-quickimage/controller/rol_controller.php", formdata)
+            axios.post("../controller/rol_controller.php", formdata)
                 .then(function (response) {
                     console.log(response);
                     rol.roles = response.data.roles;
                 })
         },
         nuevoRol: function () {
-            if ((document.getElementById("nombreRol").value) == "") {
+            if ((document.getElementById("nombreRol").value) == 0) {
                 rol.tipoalertaA = 'alert alert-danger',
                     rol.mensajesA = 'Campos vacios'
             } else {
                 let formdata = new FormData();
                 formdata.append("option", "insert")
                 formdata.append("nombre", document.getElementById("nombreRol").value)
-                axios.post("http://localhost/7moProyecto/pry-quickimage/controller/rol_controller.php", formdata)
+                axios.post("../controller/rol_controller.php", formdata)
                     .then(function (response) {
                         if (response.data == 1) {
                             rol.cargaTabla()
@@ -47,7 +47,7 @@ const rol = new Vue({
             }
         },
         editarRol: function () {
-            if ((document.getElementById("nombreEditar_rol").value) == "") {
+            if ((document.getElementById("nombreEditar_rol").value) == 0) {
                 rol.tipoalertaE = 'alert alert-danger',
                     rol.mensajesE = 'Campo vacios'
                 return false;
@@ -56,7 +56,7 @@ const rol = new Vue({
                 formdata.append("option", "update")
                 formdata.append("id", document.getElementById("codigoEditar_rol").value)
                 formdata.append("nombre", document.getElementById("nombreEditar_rol").value)
-                axios.post("http://localhost/7moProyecto/pry-quickimage/controller/rol_controller.php", formdata)
+                axios.post("../controller/rol_controller.php", formdata)
                     .then(function (response) {
                         if (response.data == 1) {
                             rol.cargaTabla()
@@ -67,14 +67,14 @@ const rol = new Vue({
             }
         },
         eliminarRol: function () {
-            if ((document.getElementById("nombreEditar_rol").value) == "") {
+            if ((document.getElementById("nombreEditar_rol").value) == 0) {
                 rol.tipoalertaEli = 'alert alert-danger',
                 rol.mensajesEli = 'Campo vacio'
             } else {
                 let formdata = new FormData();
                 formdata.append("option", "delete")
                 formdata.append("id", document.getElementById("codigoEliminar_rol").value)
-                axios.post("http://localhost/7moProyecto/pry-quickimage/controller/rol_controller.php", formdata)
+                axios.post("../controller/rol_controller.php", formdata)
                     .then(function (response) {
                         if (response.data == 1) {
                             rol.cargaTabla()

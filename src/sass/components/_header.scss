@@ -1,4 +1,27 @@
 
+.content-user{
+    width: 200px;
+    min-height: 80px;
+    word-wrap: break-word;
+    // background: #7386D5;
+    margin: 0 auto;
+}
+.name-user{
+    font-weight: 500;
+    color: $white;
+    padding: 5px 5px 5px 5px;
+    background: $black;
+    border-radius: 20px;
+}
+
+.email-user{
+    margin: 5px;
+    font-weight: 500;
+    color: $white;
+    padding: 5px 5px 5px 5px;
+    background: $black;
+    border-radius: 20px;
+}
 /*------------------------------------Sidebar-------------------*/
 .navbar{
 	padding: 15px 10px;
@@ -25,15 +48,22 @@
     display: flex;
     width: 100%;
     align-items: stretch;
+
+}
+
+.content{
+    width: 100%;
 }
 
 
 #sidebar {
     min-width: 250px;
     max-width: 250px;
+    
     background: $gray;
     color: $white;
     transition: all 0.3s;
+   
 }
 #sidebar.active{
 	margin-left: -250px;
@@ -44,48 +74,25 @@
 	background: $seagreen;
 }
 
-.content-user{
-    width: 200px;
-    min-height: 80px;
-    word-wrap: break-word;
-    // background: #7386D5;
-    margin: 0 auto;
-}
-.name-user{
-    font-weight: 500;
-    color: $white;
-    padding: 5px 5px 5px 5px;
-    background: $black;
-    border-radius: 20px;
-}
 
-.email-user{
-    margin: 5px;
-    font-weight: 500;
-    color: $white;
-    padding: 5px 5px 5px 5px;
-    background: $black;
-    border-radius: 20px;
-}
 #sidebar ul.components{
     padding: 0px 0px;
-    border-top: 5px solid #47748b;
-	border-bottom: 5px solid #47748b;
+   
 }
 
 #sidebar ul p{
 	padding: 10px;
-	font-size: 1.1em;
+	font-size: 18px;
 	display: block;
 }
 
 #sidebar ul li a{
 	padding: 20px;
-	font-size: 1.1em;
+	font-size: 18px;
     display: block;
     color: $white;
     transition: all .1s ease;
-    border-left:5px solid $seagreen; 
+   
 }
 
 
@@ -113,7 +120,7 @@ a[data-toggle="collapse"] {
 }
 
 ul ul a {
-    font-size: 0.9em !important;
+    font-size:14px !important;
     padding-left: 30px !important;
     background: #6d7fcc;
 }
@@ -124,7 +131,7 @@ ul.CTAs {
 
 ul.CTAs a {
     text-align: center;
-    font-size: 0.9em !important;
+    font-size: 14px !important;
     display: block;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -133,6 +140,7 @@ a.download{
 	background: #fff;
 	color: #7386D5;
 }
+
 a.article,
 a.article:hover {
     background: #6d7fcc !important;
@@ -141,13 +149,15 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
+   
     min-height: 100vh;
     transition: all 0.3s;
 }
 
 @media(maz-width:768px){
-	#sidebar{margin-left: -250px;}
+    #sidebar{margin-left: -250px;
+           
+    }
 	#sidebar.active{
 		margin-left: 0px;
 	}

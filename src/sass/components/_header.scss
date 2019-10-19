@@ -1,26 +1,30 @@
 
 .content-user{
-    width: 200px;
-    min-height: 80px;
+    width: 250px;
+    min-height: 100%;
     word-wrap: break-word;
-    // background: #7386D5;
-    margin: 0 auto;
+   
 }
 .name-user{
     font-weight: 500;
     color: $white;
     padding: 5px 5px 5px 5px;
     background: $black;
-    border-radius: 20px;
+     margin: 0;
 }
 
 .email-user{
-    margin: 5px;
+
     font-weight: 500;
     color: $white;
     padding: 5px 5px 5px 5px;
     background: $black;
-    border-radius: 20px;
+}
+
+.image-user{
+display: block;
+margin: 0 auto;
+padding: 10px;
 }
 /*------------------------------------Sidebar-------------------*/
 .navbar{
@@ -28,7 +32,7 @@
 	background: #fff;
 	border: none;
 	border-radius: 0;
-	margin-bottom: 40px;
+    margin: 0;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
@@ -70,7 +74,6 @@
 }
 
 #sidebar .sidebar-header{
-	padding: 20px;
 	background: $seagreen;
 }
 
@@ -94,8 +97,6 @@
     transition: all .1s ease;
    
 }
-
-
 
 #sidebar ul li a:hover {
     color: $black;

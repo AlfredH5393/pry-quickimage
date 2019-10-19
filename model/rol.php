@@ -23,7 +23,7 @@ class rol{
        return $delete;
     }
 
-    public  function getdatos(){
+    public  function getdatos(){ 
       $conectar = new conexion();
       $sql="CALL SP_Roles ('select',0,'0')";  
       mysqli_set_charset($conectar->conectarbd(),"utf8");

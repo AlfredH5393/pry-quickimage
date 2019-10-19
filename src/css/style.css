@@ -29,7 +29,8 @@
   color: #040F0F; }
 
 .year-p {
-  color: #2C3E50; }
+  color: #2C3E50;
+  font-weight: 400; }
 
 .form-signin .form-control {
   position: relative;
@@ -53,18 +54,46 @@
 
 .registera {
   display: block;
-  margin: 10px auto;
   text-decoration: none;
-  background: #2C3E50;
+  margin: 10px auto;
+  font-weight: 400;
   color: #FFFFFF;
-  padding: 10px;
-  transition: all .3s;
-  border-radius: 0.3rem; }
+  text-align: center;
+  background-color: #2C3E50;
+  border: 1px solid transparent;
+  padding: 6px;
+  font-size: 19.5px;
+  line-height: 1.5;
+  border-radius: 4px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
 
 .registera:hover {
   text-decoration: none;
   background: #040F0F;
   color: #FFFFFF; }
+
+.content-user {
+  width: 250px;
+  min-height: 100%;
+  word-wrap: break-word; }
+
+.name-user {
+  font-weight: 500;
+  color: #FFFFFF;
+  padding: 5px 5px 5px 5px;
+  background: #040F0F;
+  margin: 0; }
+
+.email-user {
+  font-weight: 500;
+  color: #FFFFFF;
+  padding: 5px 5px 5px 5px;
+  background: #040F0F; }
+
+.image-user {
+  display: block;
+  margin: 0 auto;
+  padding: 10px; }
 
 /*------------------------------------Sidebar-------------------*/
 .navbar {
@@ -72,7 +101,7 @@
   background: #fff;
   border: none;
   border-radius: 0;
-  margin-bottom: 40px;
+  margin: 0;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); }
 
 .navbar-btn {
@@ -90,6 +119,9 @@
   width: 100%;
   align-items: stretch; }
 
+.content {
+  width: 100%; }
+
 #sidebar {
   min-width: 250px;
   max-width: 250px;
@@ -101,47 +133,22 @@
   margin-left: -250px; }
 
 #sidebar .sidebar-header {
-  padding: 20px;
   background: #1ABC9C; }
 
-.content-user {
-  width: 200px;
-  min-height: 80px;
-  word-wrap: break-word;
-  margin: 0 auto; }
-
-.name-user {
-  font-weight: 500;
-  color: #FFFFFF;
-  padding: 5px 5px 5px 5px;
-  background: #040F0F;
-  border-radius: 20px; }
-
-.email-user {
-  margin: 5px;
-  font-weight: 500;
-  color: #FFFFFF;
-  padding: 5px 5px 5px 5px;
-  background: #040F0F;
-  border-radius: 20px; }
-
 #sidebar ul.components {
-  padding: 0px 0px;
-  border-top: 5px solid #47748b;
-  border-bottom: 5px solid #47748b; }
+  padding: 0px 0px; }
 
 #sidebar ul p {
   padding: 10px;
-  font-size: 1.1em;
+  font-size: 18px;
   display: block; }
 
 #sidebar ul li a {
   padding: 20px;
-  font-size: 1.1em;
+  font-size: 18px;
   display: block;
   color: #FFFFFF;
-  transition: all .1s ease;
-  border-left: 5px solid #1ABC9C; }
+  transition: all .1s ease; }
 
 #sidebar ul li a:hover {
   color: #040F0F;
@@ -164,7 +171,7 @@ a[data-toggle="collapse"] {
   transform: translateY(-50%); }
 
 ul ul a {
-  font-size: 0.9em !important;
+  font-size: 14px !important;
   padding-left: 30px !important;
   background: #6d7fcc; }
 
@@ -173,7 +180,7 @@ ul.CTAs {
 
 ul.CTAs a {
   text-align: center;
-  font-size: 0.9em !important;
+  font-size: 14px !important;
   display: block;
   border-radius: 5px;
   margin-bottom: 5px; }
@@ -189,7 +196,6 @@ a.article:hover {
 
 #content {
   width: 100%;
-  padding: 20px;
   min-height: 100vh;
   transition: all 0.3s; }
 

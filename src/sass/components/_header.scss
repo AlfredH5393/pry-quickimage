@@ -1,9 +1,17 @@
 
+.logo{
+    background: $black;
+    padding: 5px;
+}
+.img-user{
+    display: block;
+    border-radius: 50%;
+}
 .content-user{
     width: 250px;
     min-height: 100%;
     word-wrap: break-word;
-   
+  
 }
 .name-user{
     font-weight: 500;
@@ -11,6 +19,7 @@
     padding: 5px 5px 5px 5px;
     background: $black;
      margin: 0;
+     height: 40px;
 }
 
 .email-user{
@@ -19,6 +28,7 @@
     color: $white;
     padding: 5px 5px 5px 5px;
     background: $black;
+    height: 40px;
 }
 
 .image-user{
@@ -57,6 +67,7 @@ padding: 10px;
 
 .content{
     width: 100%;
+   
 }
 
 

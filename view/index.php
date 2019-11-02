@@ -1,3 +1,7 @@
+<?php
+session_start();
+  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES'  && $_SESSION['rol']=="76") 
+{?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +43,7 @@
             
             <ul class="list-unstyled components">
                 <li class="">
-                    <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+                    <a href="index.php"><i class="fa fa-home"></i> Inicio</a>
                 </li>
                 <li class="">
                      <a href="#"><i class=" fa fa-bookmark fa-1x"></i> Categorias</a>
@@ -72,7 +76,7 @@
                               </button>
                               <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">Cuenta</button>
-                                <button class="dropdown-item d-block" type="button">Cerrar sesion</button>
+                                <a class="dropdown-item d-block" href="../model/destroysesion.php">Cerrar sesion</a>
                               </div>
                     </div>
               
@@ -102,12 +106,7 @@
                     </div>          
                   </div>  
                   <h1 class="text-center mt-4">Bienvenido al panel de administracion.</h1>
-                  <div class="alert alert-success" role="alert">
-                    This is a success alert—check it out!
-                  </div>
-                  <div class="alert alert-danger" role="alert">
-                    This is a danger alert—check it out!
-                  </div>
+                 
               </div>
                 
             
@@ -136,3 +135,11 @@
 </body>
 
 </html>
+<?php
+
+  }
+  else
+  {
+    header("location: ../index.html");
+  }
+ ?>

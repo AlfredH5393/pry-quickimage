@@ -4,7 +4,7 @@ const rol = new Vue({
         mensajesA: null,
         tipoalertaA: null,
         mensajesE: null,
-        tipoalertaE: null,
+        tipoalertaE: null, 
         mensajesEli: null,
         tipoalertaEli: null,
         roles: [],

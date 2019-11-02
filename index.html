@@ -12,23 +12,30 @@
 <body class="text-center">
     
         <div class="login-cont" ></div>
-        <div class="login">
+        <div id="log-user" class="login">
             <form class="form-signin">
-            <h2 class="h2 mb-3 font-weight-normal"> Login</h2>
+            <h2 class="h2 mb-3 font-weight-normal"> {{titlelog}}</h2>
               <img class="mb-4" src="src/img/logo_negro.png" alt="" width="150" height="70">
-              <label for="inputEmail" class="sr-only">Email</label>
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-              <label for="inputPassword" class="sr-only">Contraseña</label>
-              <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar</button>
+              
+              <div v-bind:class="alertaofaccess" role="alert">
+                {{messagealert}}
+              </div>
+
+              <label for="inputEmail"  class="sr-only">Email</label>
+              <input type="email" id="user"  class="form-control" placeholder="Email" required autofocus>
+              <label for="inputPassword"  id="user" class="sr-only">Contraseña</label>
+              <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+              <button class="btn btn-lg btn-primary btn-block" type="button"  @click="accesouser()">{{btniniciartext}}</button>
               <a href="#" class="registera">Registrarme</a>
               <p class="year-p mt-5 mb-3 "> &copy; 2018-2019</p>
              
             </form>
           
         </div>
-        
-     
 
+     <script src="src/js/axios.js"></script>
+     <script src="src/js/vue.js"></script>
+     <script src="src/js/jquery-3.4.1.js"></script>
+      <script src="src/js/crudUser.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
 
             <div class="container-fluid" id="tablaRoles">
                 <div class="container">
-                    <h5 class="text-center">ROLES</h5>
+                    <h4 class="text-center font-weight-bold mt-2">Roles</h4>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#nuevo-rol" @click="limpiar()">Nuevo</button>
 
                 </div>
@@ -164,8 +164,12 @@
                     </div>
                 </div>
             </div>
+            <?php
+            require('footer.html');
+            ?>
         </div>
     </div>
+
 
     <script>
     $(document).ready(function() {

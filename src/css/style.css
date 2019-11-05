@@ -38,7 +38,7 @@
   height: auto;
   padding: 10px;
   font-size: 16px;
-  color: #040F0F; }
+  color: #2C3E50; }
 
 .form-signin .form-control:focus {
   z-index: 2; }
@@ -62,8 +62,8 @@
   background-color: #2C3E50;
   border: 1px solid transparent;
   padding: 6px;
-  font-size: 19.5px;
-  line-height: 1.5;
+  font-size: 20px;
+  height: 38px;
   border-radius: 4px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
 
@@ -71,6 +71,14 @@
   text-decoration: none;
   background: #040F0F;
   color: #FFFFFF; }
+
+.logo {
+  background: #040F0F;
+  padding: 5px; }
+
+.img-user {
+  display: block;
+  border-radius: 50%; }
 
 .content-user {
   width: 250px;
@@ -82,13 +90,15 @@
   color: #FFFFFF;
   padding: 5px 5px 5px 5px;
   background: #040F0F;
-  margin: 0; }
+  margin: 0;
+  height: 40px; }
 
 .email-user {
   font-weight: 500;
   color: #FFFFFF;
   padding: 5px 5px 5px 5px;
-  background: #040F0F; }
+  background: #040F0F;
+  height: 40px; }
 
 .image-user {
   display: block;
@@ -206,3 +216,12 @@ a.article:hover {
     margin-left: 0px; }
   #sidebarCollapse span {
     display: none; } }
+
+#sticky-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 54px;
+  line-height: 40px;
+  color: #040F0F;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); }

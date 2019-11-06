@@ -8,13 +8,14 @@ const rol = new Vue({
         mensajesEli: null,
         tipoalertaEli: null,
         roles: [],
-        elegido: {}
+        elegido: {},
+        selected:'Seleccione Rol'
     },
     mounted: function () {
-        this.cargaTabla()
+        this.cargarDatos()
     },
     methods: {
-        cargaTabla: function () {
+        cargarDatos: function () {
             let formdata = new FormData();
             formdata.append("option", "showdata")
             axios.post("../controller/rol_controller.php", formdata)
@@ -27,6 +28,7 @@ const rol = new Vue({
             if ((document.getElementById("nombreRol").value) == 0) {
                 rol.tipoalertaA = 'alert alert-danger',
                     rol.mensajesA = 'Campos vacios'
+                    return false;
             } else {
                 let formdata = new FormData();
                 formdata.append("option", "insert")
@@ -100,7 +102,8 @@ const rol = new Vue({
             rol.tipoalertaE= null,
             rol.mensajesEli= null,
             rol.tipoalertaEli=null
-        }
+        },
+       
     }
 });
 

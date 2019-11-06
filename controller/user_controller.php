@@ -1,8 +1,8 @@
 <?php
 require('../model/user.php');
 
+$_POST = json_decode(file_get_contents("php://input"), true);
 $operacion=$_POST['option'];
-
 $objusuario= new usuario();
 
 switch($operacion)
@@ -28,6 +28,10 @@ switch($operacion)
                     $_SESSION['rol']          = $array[8];
                     echo $rol = $array[8];
                 }
+    break;
+
+    case 'register':
+        echo $objusuario->registrarusuario($_POST['nombre'],$_POST['appaterno'],$_POST['apmaterno'],$_POST['correo'],$_POST['usuario'],$_POST['password']);
     break;
 
     case 'insert':

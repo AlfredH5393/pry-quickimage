@@ -1,3 +1,7 @@
+<?php
+session_start();
+  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES'  && $_SESSION['rol']=="76") 
+{?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +16,7 @@
 
     <script type="text/javascript" src="../src/js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="../src/js/bootstrap.js"></script>
-    <script src="../src/js/config.js"></script>
+    
 </head>
 
 <body>
@@ -78,7 +82,15 @@
                             </table>
                         </div>
                     </div>
-                    
+
+                    <!-- <select class="form-control" name="" id="">
+                        <option value="0">---Seleccione Rol---</option>
+                        <option v-for="Rol in roles" v-bind:value="Rol.Id">
+                            {{ Rol.rol }}
+                        </option>
+                    </select> -->
+
+
 
                     <!--- MODALES -->
                     <!--- MODAL NUEVO -->
@@ -187,3 +199,11 @@
 <script type="text/javascript" src="../src/js/crudRoles.js"></script>
 
 </html>
+<?php
+
+  }
+  else
+  {
+    header("location: ../index.html");
+  }
+ ?>

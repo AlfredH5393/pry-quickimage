@@ -7,35 +7,120 @@
     <title>login</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/css/bootstrap.css">
+    <script src="src/js/jquery-3.4.1.js"></script>
+    <script src="src/js/bootstrap.js"></script>
     
 </head>
 <body class="text-center">
-    
+  <div id="log-user"> <!--App Vuejs-->
+
         <div class="login-cont" ></div>
-        <div id="log-user" class="login">
+        <div  class="login">
             <form class="form-signin">
             <h2 class="h2 mb-3 font-weight-normal"> {{titlelog}}</h2>
               <img class="mb-4" src="src/img/logo_negro.png" alt="" width="150" height="70">
-              
-              <div v-bind:class="alertaofaccess" role="alert">
-                {{messagealert}}
-              </div>
+              <div v-bind:class="alertaofaccess" role="alert" style="font-weight: 400;">
+                  {{messagealert}}
+                </div>
+             
 
               <label for="inputEmail"  class="sr-only">Email</label>
               <input type="email" id="user"  class="form-control" placeholder="Email" required autofocus>
               <label for="inputPassword"  id="user" class="sr-only">Contraseña</label>
               <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
               <button class="btn btn-lg btn-primary btn-block" type="button"  @click="accesouser()">{{btniniciartext}}</button>
-              <a href="#" class="registera">Registrarme</a>
+              <a href="#" class="registera" data-toggle="modal" data-target="#register">Registrarme</a>
               <p class="year-p mt-5 mb-3 "> &copy; 2018-2019</p>
              
             </form>
-          
+
+            
+            
         </div>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-lg" role="document">
+              <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div v-bind:class="alertavalidregister" role="alert">
+                  {{messagealertregister}}
+                </div>
+      
+              <div class="modal-body ">
+                
+                  <form  class="form-horizontal p-3" id="form-register"><!--Form Register-->
+                      <div class="form-group row">
+                        <label for="nombre" class="col-sm-3 col-form-label">Nombre: </label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="nombre"  @focus="limpiaralertas()" placeholder="Ingrese  su nombre o nombres"  maxlength="80" >
+                        </div>
+                      </div>
+              
+                      <div class="form-group row">
+                        <label for="ap-paterno" class="col-sm-3 col-form-label">Apellido paterno: </label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="ap-paterno"   @focus="limpiaralertas()"   placeholder="Ingrese su apellido paterno" minlength="1"  maxlength="80" >
+                        </div>
+                      </div>
+                
+                      <div class="form-group row">
+                        <label for="ap-materno" class="col-sm-3 col-form-label">Apellido Materno: </label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" id="ap-materno"    @focus="limpiaralertas()" placeholder="Ingrese su apellido materno"  minlength="1"   maxlength="80"  >
+                        </div>
+                      </div>
+              
+
+                      <div class="form-group row">
+                          <label for="usuario" class="col-sm-3 col-form-label">Correo: </label>
+                          <div class="col-sm-8">
+                          <input type="email" class="form-control" id="correo"    @focus="limpiaralertas()" placeholder="Ejemplo@hotmail.com" minlength="3" maxlength="40">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="usuario" class="col-sm-3 col-form-label">Usuario: </label>
+                          <div class="col-sm-8">
+                          <input type="text" class="form-control" id="usuario"    @focus="limpiaralertas()"  placeholder="@usuariodeEjemplo" minlength="3" maxlength="40">
+                          </div>
+                        </div>
+              
+                        <div class="form-group row">
+                          <label for="pass" class="col-sm-3 col-form-label">Contraseña: </label>
+                          <div class="col-sm-8">
+                          <input type="password" class="form-control" id="pass"   @focus="limpiaralertas()" placeholder="Ingrese contraseña"   minlength="8" maxlength="20">
+                          </div>
+                        </div>
+                      
+                        <div class="form-group row">
+                          <label for="pass2" class="col-sm-3 col-form-label"> Repita contraseña: </label>
+                          <div class="col-sm-8">
+                          <input type="password" class="form-control" id="pass2"   @focus="limpiaralertas()" placeholder="Confirme su contraseña"   minlength="8" maxlength="20">
+                          </div>
+                        </div>
+            
+                  </form><!--End Form Register-->
+              </div>
+              <div class="modal-footer">
+               
+                <button type="button" class="btn btn-primary" @click ="RegisterUser()" >Registrar</button>
+              </div>
+              </div>
+            </div>
+          </div> <!--End Modal-->
+
+        </div><!--End App Vuejs-->
 
      <script src="src/js/axios.js"></script>
      <script src="src/js/vue.js"></script>
-     <script src="src/js/jquery-3.4.1.js"></script>
-      <script src="src/js/crudUser.js"></script>
+     <script src="src/js/crudUser.js"></script>
+      
 </body>
 </html>

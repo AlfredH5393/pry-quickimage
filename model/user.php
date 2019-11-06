@@ -17,5 +17,35 @@ require('conexion.php');
               }
               return $r;
         }
+     
+        function registrarusuario($nombre,$apaterno,$amaterno,$correo,$usuario,$password){
+                $connect = new conexion();
+                //    $pass = sha1($password);
+                //   $fecha= date("Y-m-d");
+       
+                  $sql = "INSERT INTO tblusuarios
+                  (
+                   `vchNombre`,
+                   `vchAppeliidoP`,
+                   `vchApellidoM`,
+                   `vchCorreo`,
+                   `vchUsuario`,
+                   `vchContrasena`,
+                   `fk_Rol`)
+                VALUES (
+                        '$nombre',
+                        '$apaterno',
+                        '$amaterno',
+                        '$correo',
+                        '$usuario',
+                        '$password',
+                        77)";
+                  $registrar=mysqli_query($connect->conectarbd(),$sql);
+                   
+                return $registrar;
+                  
+                    
+         }
+    
     }
 ?>

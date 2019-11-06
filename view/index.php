@@ -21,66 +21,14 @@ session_start();
 
 <body>
     <div class="wrapper">
-        <nav id="sidebar">
-            <div class="sidebar-header">
-               <div class="logo">
-                   <img  class ="d-block mx-auto" src="../src/img/logo_blanco.png" width="150" height="70" alt="">
-               
-               </div>
-               <div>
-                <img src="../src/img/user.png" class="mx-auto d-block mt-3 img-user" alt="" height="150" width="150">
-                   
-               </div>
-                    
-                     <div class="content-user ">
-                            <p class=" name-user text-center mt-3" > Antonio Liborio </p>
-                            <p class=" email-user text-center">AntonioLiborio@gmail.com</p>
-                     </div>
-                     
-              
-            </div>
-            
-            
-            <ul class="list-unstyled components">
-                <li class="">
-                    <a href="index.php"><i class="fa fa-home"></i> Inicio</a>
-                </li>
-                <li class="">
-                     <a href="#"><i class=" fa fa-bookmark fa-1x"></i> Categorias</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-image  fa-1x"></i> Imagenes</a>
-                </li>
-                <li>
-                    <a href="roles.php"><i class="fa fa-users  fa-1x"></i> Roles</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-user  fa-1x"></i> Usuarios</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-download  fa-1x"></i> Descargas</a>
-                </li>
-            </ul>
-            
-    </nav>
+    <?php
+            require("sidebar.html");
+           ?>
 
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button type="button" id="sidebarCollapse" class="btn btn-success">
-                  <i class="fa fa-align-justify fa-1x"></i>
-                </button>
-              <div style="margin: 0px 12px 0px 12px;"></div>
-                      <div class="btn-group d-block float-left " >
-                              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-cog fa-1x"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item" type="button">Cuenta</button>
-                                <a class="dropdown-item d-block" href="../model/destroysesion.php">Cerrar sesion</a>
-                              </div>
-                    </div>
-              
-              </nav>
+        <?php
+                  require("header.html");
+                ?>
               <div class="container-fluid mt-3" >
                 <div class="card-columns text-white">
                     <div class="card bg-primary">
@@ -115,11 +63,9 @@ session_start();
 
            
 
-              <footer id="sticky-footer" class="py-1 bg-light ">
-                    <div class="container text-center">
-                      <p>Copyright &copy; QuickImage 2019</p>
-                    </div>
-            </footer>
+              <?php
+            require('footer.html');
+            ?>
         </div>
         
     </div>

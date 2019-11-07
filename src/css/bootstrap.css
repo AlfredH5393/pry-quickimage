@@ -1802,6 +1802,11 @@ pre code {
 .table-dark.table-bordered {
   border: 0;
 }
+.m-b-40 {
+  margin-bottom: 40px;
+}
+
+
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(255, 255, 255, 0.05);

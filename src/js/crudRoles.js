@@ -10,9 +10,10 @@ const rol = new Vue({
         roles: [],
         elegido: {},
         selected:'Seleccione Rol'
+       
     },
     mounted: function () {
-        this.cargarDatos()
+        this.cargarDatos() 
     },
     methods: {
         cargarDatos: function () {
@@ -36,7 +37,7 @@ const rol = new Vue({
                 axios.post("../controller/rol_controller.php", formdata)
                     .then(function (response) {
                         if (response.data == 1) {
-                            rol.cargaTabla()
+                            rol.cargarDatos()
                             document.getElementById("nombreRol").value = '',
                                 rol.tipoalertaA = 'alert alert-success',
                                 rol.mensajesA = 'Rol agregado correctamente'
@@ -61,7 +62,7 @@ const rol = new Vue({
                 axios.post("../controller/rol_controller.php", formdata)
                     .then(function (response) {
                         if (response.data == 1) {
-                            rol.cargaTabla()
+                            rol.cargarDatos()
                             rol.tipoalertaE = 'alert alert-success',
                             rol.mensajesE = 'El rol se ah editado corrrectamente'
                         }
@@ -79,7 +80,7 @@ const rol = new Vue({
                 axios.post("../controller/rol_controller.php", formdata)
                     .then(function (response) {
                         if (response.data == 1) {
-                            rol.cargaTabla()
+                            rol.cargarDatos()
                             rol.tipoalertaEli = 'alert alert-success',
                             rol.mensajesEli = 'El rol se ah eliminado corrrectamente'
                         }else if(response.data == ""){

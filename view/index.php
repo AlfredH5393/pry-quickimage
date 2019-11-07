@@ -1,6 +1,6 @@
 <?php
 session_start();
-  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES'  && $_SESSION['rol']=="76") 
+  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES'  && $_SESSION['rol']=="Administrador") 
 {?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@ session_start();
 <body>
     <div class="wrapper">
     <?php
-            require("sidebar.html");
+            require("sidebar.php");
            ?>
 
         <div id="content">

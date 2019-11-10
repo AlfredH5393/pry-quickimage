@@ -13,7 +13,6 @@ const User = new Vue({
     elegido:{},
     url: '',
     url2: ''
- 
   },
   mounted: function() {
     this.getDatos();

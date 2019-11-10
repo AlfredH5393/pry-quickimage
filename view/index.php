@@ -16,7 +16,7 @@ session_start();
 
     <script src="../src/js/jquery-3.4.1.js"></script>
     <script src="../src/js/bootstrap.js"></script>
-    <script src="../src/js/config.js"></script>
+    <script src="../src/js/extras.js"></script>
 </head>
 
 <body>
@@ -25,58 +25,59 @@ session_start();
             require("sidebar.php");
            ?>
 
-        <div id="content">
+        <div id="content" class="bg-ccc">
         <?php
                   require("header.html");
                 ?>
-              <div class="container-fluid mt-3" >
-                <div class="card-columns text-white">
-                    <div class="card bg-primary">
-                      <div class="card-body text-center">
-                        <h4 class="card-text">Usuarios</h4>
-                       <h4>6</h4>
-                       <i class="fa fa-user  fa-4x"></i>
-                      </div>
-                    </div>
-                    <div class="card bg-danger">
-                      <div class="card-body text-center">
-                        <h4 class="card-text">Categorias</h4>
-                        <h4>6</h4>
-                        <i class="fa fa-bookmark fa-4x"></i>
-                      </div>
-                    </div>
-                    <div class="card bg-success">
-                      <div class="card-body text-center">
-                        <h4 class="card-text">Imagenes</h4>
-                        <h4>6</h4>
-                        <i class="fa fa-image fa-4x"></i>
-                      </div>
-                    </div>          
-                  </div>  
+              <div class="mx-width-1075 container-fluid mt-3 " >
+            <div  class="mycards">
+              <div class="content-mycards">
+                  <div class="card-columns text-white">
+                        <div class="card bg-primary">
+                          <div class="card-body text-center">
+                            <h4 class="card-text">Usuarios</h4>
+                          <h4>6</h4>
+                          <i class="fa fa-user  fa-4x"></i>
+                          </div>
+                        </div>
+                        <div class="card bg-danger">
+                          <div class="card-body text-center">
+                            <h4 class="card-text">Categorias</h4>
+                            <h4>6</h4>
+                            <i class="fa fa-bookmark fa-4x"></i>
+                          </div>
+                        </div>
+                        <div class="card bg-success">
+                          <div class="card-body text-center">
+                            <h4 class="card-text">Imagenes</h4>
+                            <h4>6</h4>
+                            <i class="fa fa-image fa-4x"></i>
+                          </div>
+                        </div>          
+                      </div> 
+
+              </div>
+                    
+            </div>
+               
+              <div  class="mycards">
+                <div class="content-mycards">
                   <h1 class="text-center mt-4">Bienvenido al panel de administracion.</h1>
+                </div>
+
+              </div>
+                  
                  
               </div>
                 
-            
-                
-
-
-           
-
               <?php
             require('footer.html');
-            ?>
+          ?>
+          
         </div>
-        
+       
     </div>
 
-    <script>
-    $(document).ready(function() {
-        $('#sidebarCollapse').on('click', function() {
-            $('#sidebar').toggleClass('active');
-        });
-    });
-    </script>
 
 </body>
 

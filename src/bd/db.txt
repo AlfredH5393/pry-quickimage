@@ -21,7 +21,7 @@ CREATE TABLE `tblusuarios` (
   `vchApellidoM` varchar(30) DEFAULT NULL,
   `vchCorreo` varchar(100) DEFAULT NULL,
   `vchUsuario` varchar(20) DEFAULT NULL,
-  `vchContraseña` varchar(32) DEFAULT NULL,
+  `vchContrasena` varchar(32) DEFAULT NULL,
   `imgPerfil` varchar(60) DEFAULT NULL,
   `fk_Rol` int(11) DEFAULT NULL,
   PRIMARY KEY (`idUsuario`),

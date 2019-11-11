@@ -1,7 +1,7 @@
 <?php
 require('../model/user.php');
 
-$_POST = json_decode(file_get_contents("php://input"), true);
+// $_POST = json_decode(file_get_contents("php://input"), true);
 $operacion=$_POST['option'];
 $objusuario= new usuario();
 
@@ -25,8 +25,8 @@ switch($operacion)
                     $_SESSION['email_user']   = $array[4];
                     $_SESSION['name_usuario'] = $array[5];
                     $_SESSION['img']          = $array[7];
-                    $_SESSION['rol']          = $array[8];
-                    echo $rol = $array[8];
+                    $_SESSION['rol']          = $array[9];
+                    echo $rol = $array[9];
                 }
     break;
 
@@ -35,19 +35,25 @@ switch($operacion)
     break;
 
     case 'insert':
-    
+        $imagen=$_FILES['img'];
+        $filename=$_FILES['img']['name'];
+        $sourcepat=$_FILES["img"]['tmp_name']; 
+        echo $objusuario->insert($_POST['nombre'],$_POST['appaterno'],$_POST['apmaterno'],$_POST['correo'],$_POST['usuario'], $_POST['password'],$imagen,$filename,$sourcepat,$_POST['rol']);
     break;
 
     case 'update':
-   
+        $imagen=$_FILES['img'];
+        $filename=$_FILES['img']['name'];
+        $sourcepat=$_FILES["img"]['tmp_name']; 
+        echo $objusuario->update($_POST['id'],$_POST['nombre'],$_POST['appaterno'],$_POST['apmaterno'],$_POST['correo'],$_POST['usuario'], $_POST['password'],$imagen,$filename,$sourcepat,$_POST['rol']);
     break;
 
     case 'delete':
-       
+       echo $objusuario->delete($_POST['id']);
     break;
     
     case 'showdata':
-    
+        echo $objusuario->getDatos();
     break;
 
 }

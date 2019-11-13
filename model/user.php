@@ -153,6 +153,21 @@ require('conexion.php');
 
             return $update;
         }
+        function updateOffPhoto($id,$nombre,$apaterno,$amaterno,$correo,$usuario,$password,$rol){
+            $connect = new conexion();
+                $sql="UPDATE `tblusuarios`
+                SET 
+                  `vchNombre` = '$nombre',
+                  `vchAppeliidoP` = '$apaterno',
+                  `vchApellidoM` = '$amaterno',
+                  `vchCorreo` = '$correo',
+                  `vchUsuario` = '$usuario',
+                  `vchContrasena` = '$password',
+                  `fk_Rol` = '$rol'
+                WHERE `idUsuario` = '$id'";
+
+            return $update=mysqli_query($connect->conectarbd(),$sql); 
+        }
 
         function delete($id){
             $connect = new conexion();

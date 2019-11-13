@@ -56,5 +56,9 @@ switch($operacion)
         echo $objusuario->getDatos();
     break;
 
+    case 'updateOffPhoto':
+        echo $objusuario->updateOffPhoto($_POST['id'],$_POST['nombre'],$_POST['appaterno'],$_POST['apmaterno'],$_POST['correo'],$_POST['usuario'], $_POST['password'],$_POST['rol']);    
+    break;
+
 }
 ?>

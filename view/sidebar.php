@@ -29,7 +29,7 @@
             <a href="index.php"><i class="fa fa-home"></i> Inicio</a>
         </li>
         <li class="">
-             <a href="#"><i class=" fa fa-bookmark fa-1x"></i> Categorias</a>
+             <a href="categorias.php"><i class=" fa fa-bookmark fa-1x"></i> Categorias</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-image  fa-1x"></i> Imagenes</a>

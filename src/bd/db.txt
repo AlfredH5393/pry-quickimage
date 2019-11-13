@@ -111,3 +111,75 @@ BEGIN
 	END IF;
     END 
 DELIMITER ;
+
+
+
+// PROCEDURE users
+
+DELIMITER $$
+
+CREATE
+    PROCEDURE `dbquickimage`.`SP_Usuarios`(
+    IN tipo VARCHAR(8), 
+    IN IdUsuario INT, 
+    IN nombre VARCHAR(40),
+    IN apellidoPaterno VARCHAR(30),
+    IN apellidoMaterno VARCHAR(30),
+    IN correo VARCHAR(100),
+    IN usuario VARCHAR(20),
+    IN contraseña VARCHAR(32),
+    IN ftPerfil VARCHAR(60),
+    IN fkRol INT
+    )
+    BEGIN
+	IF tipo = 'insert' THEN
+		INSERT INTO `dbquickimage`.`tblusuarios`
+		    (`vchNombre`,
+		     `vchAppeliidoP`,
+		     `vchApellidoM`,
+		     `vchCorreo`,
+		     `vchUsuario`,
+		     `vchContraseña`,
+		     `imgPerfil`,
+		     `fk_Rol`)
+		VALUES (nombre,
+			apellidoPaterno,
+			apellidoMaterno,
+			correo,
+			usuario,
+			contraseña,
+			ftPerfil,
+			fkRol);
+	END IF;
+	IF tipo = 'update' THEN
+		UPDATE `dbquickimage`.`tblusuarios`
+		SET `vchNombre` = nombre,
+		    `vchAppeliidoP` = apellidoPaterno,
+		    `vchApellidoM` = apellidoMaterno,
+		    `vchCorreo` = correo,
+		    `vchUsuario` = usuario,
+		    `vchContraseña` = contraseña,
+		    `imgPerfil` = ftPerfil,
+		    `fk_Rol` = fkRol
+		WHERE `idUsuario` = IdUsuario;
+	END IF;
+	IF tipo = 'delete' THEN
+		DELETE
+		FROM `dbquickimage`.`tblusuarios`
+		WHERE `idUsuario` = IdUsuario;
+	END IF;
+	IF tipo = 'showData' THEN
+		SELECT 
+		  tblusuarios.idUsuario AS 'ID',
+		  CONCAT(tblusuarios.vchNombre,' ',tblusuarios.vchAppeliidoP ,' ',tblusuarios.vchApellidoM ) AS 'NOMBRE',
+		  tblusuarios.vchCorreo AS 'CORREO',
+		  tblusuarios.vchUsuario AS 'USUARIO',
+		  tblusuarios.vchContraseña AS 'CONTRASEÑA',
+		  tblusuarios.imgPerfil AS 'fotoPerfil',
+		  tblroles.Nombre AS 'ROL'
+		FROM tblusuarios, tblroles
+		WHERE idRol = fk_Rol;
+	END IF;
+    END$$
+
+DELIMITER ;

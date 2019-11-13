@@ -18,8 +18,8 @@ require('conexion.php');
             `tblusuarios`.`vchUsuario`,
             `tblusuarios`.`vchContrasena`,
             `tblusuarios`.imgPerfil,
-            tblroles.idRol,
-            tblroles.`Nombre` AS NombreRol	
+             tblroles.idRol,
+             tblroles.`Nombre` AS NombreRol	
              FROM 
              `tblusuarios`,`tblroles`
              WHERE

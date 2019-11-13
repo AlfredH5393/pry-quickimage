@@ -7,5 +7,6 @@ $(document).ready(function() {
         $('.container-fluid').toggleClass('mx-width-1075')
     });
 
+
     
 });

@@ -3,7 +3,7 @@
 class conexion
 {
     const user='root';
-    const pass='';
+    const pass='admin1';
     const db='dbquickimage';
     const servidor='localhost';
     // const user='toolcrea_turismo';

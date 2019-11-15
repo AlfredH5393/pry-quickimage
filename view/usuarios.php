@@ -1,6 +1,6 @@
 <?php
 session_start();
-  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES'  && $_SESSION['rol']=="Administrador") 
+  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES') 
 {?>
 <!DOCTYPE html>
 <html lang="en">

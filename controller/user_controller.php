@@ -26,7 +26,7 @@ switch($operacion)
                     $_SESSION['name_usuario'] = $array[5];
                     $_SESSION['img']          = $array[7];
                     $_SESSION['rol']          = $array[9];
-                    echo $rol = $array[9];
+                    echo "1";
                 }
     break;
 

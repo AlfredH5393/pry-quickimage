@@ -23,26 +23,41 @@
       
     </div>
     
-    
+   
     <ul class="list-unstyled components">
-        <li class="">
-            <a href="index.php"><i class="fa fa-home"></i> Inicio</a>
-        </li>
-        <li class="">
-             <a href="categorias.php"><i class=" fa fa-bookmark fa-1x"></i> Categorias</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-image  fa-1x"></i> Imagenes</a>
-        </li>
-        <li>
-            <a href="roles.php"><i class="fa fa-users  fa-1x"></i> Roles</a>
-        </li>
-        <li>
-            <a href="usuarios.php"><i class="fa fa-user  fa-1x"></i> Usuarios</a>
-        </li>
-        <li>
-            <a href="#"><i class="fa fa-download  fa-1x"></i> Descargas</a>
-        </li>
+        <?php 
+            $tipoUsuario = $_SESSION['rol'];
+            if($tipoUsuario == "Administrador"){
+        
+        ?> 
+            <li class="">
+                <a href="index.php"><i class="fa fa-home"></i> Inicio</a>
+            </li>
+            <li class="">
+                <a href="categorias.php"><i class=" fa fa-bookmark fa-1x"></i> Categorias</a>
+            </li>
+            <li>
+                <a href="uploadimagen.php"><i class="fa fa-image  fa-1x"></i> Imagenes</a>
+            </li>
+            <li>
+                <a href="roles.php"><i class="fa fa-users  fa-1x"></i> Roles</a>
+            </li>
+            <li>
+                <a href="usuarios.php"><i class="fa fa-user  fa-1x"></i> Usuarios</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-download  fa-1x"></i> Descargas</a>
+            </li>
+        <?php
+            } else {
+        ?>
+            <li>
+                <a href="uploadimagen.php"><i class="fa fa-upload fa-1x"></i> Subir imagen </a>
+            </li>
+                    
+        <?php
+            } 
+        ?>
     </ul>
-    
+
 </nav>

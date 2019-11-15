@@ -1,6 +1,6 @@
 <?php
 session_start();
-  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES'  && $_SESSION['rol']=="Administrador") 
+  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES') 
 {?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +30,17 @@ session_start();
                   require("header.html");
                 ?>
               <div class="mx-width-1075 container-fluid mt-3 " >
+
+                <div  class="mycards">
+                  <div class="content-mycards">
+                    <h1 class="text-center mt-4">Bienvenido al QuickImage usted esta en modo <?php echo $_SESSION['rol'];?>.</h1>
+                  </div>
+                </div>
+
+            <?php
+              $tipoRol =$_SESSION['rol'];
+              if($tipoRol == "Administrador"){
+            ?>
             <div  class="mycards">
               <div class="content-mycards">
                   <div class="card-columns text-white">
@@ -54,18 +65,12 @@ session_start();
                             <i class="fa fa-image fa-4x"></i>
                           </div>
                         </div>          
-                      </div> 
-
-              </div>
-                    
+                  </div> 
+              </div>      
             </div>
-               
-              <div  class="mycards">
-                <div class="content-mycards">
-                  <h1 class="text-center mt-4">Bienvenido al panel de administracion.</h1>
-                </div>
-
-              </div>
+            <?php
+              } 
+            ?>   
                   
                  
               </div>

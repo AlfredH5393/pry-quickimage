@@ -209,7 +209,7 @@ require('conexion.php');
                 );
             }
             
-            $encabezado=array("users"=>$usuarios);
+            $encabezado=array( "users" => $usuarios);
             $json_string = json_encode($encabezado,JSON_UNESCAPED_UNICODE);
             return $json_string;
         }

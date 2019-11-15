@@ -1,6 +1,6 @@
 <?php
 session_start();
-  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES'  && $_SESSION['rol']=="Administrador") 
+  if (isset($_SESSION['ingreso']) && $_SESSION['ingreso']=='YES') 
 {?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +53,7 @@ session_start();
                                         <!-- Tabla de roles -->
                                         <div class="row d-flex justify-content-center">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-12">
-                                                <div class="table-responsive scrollbar" style="height:355px; overflow: scroll;">
+                                              <div class="table-responsive scrollbar" style="height:355px; overflow: scroll;">
                                                 <table class="table table-hover">
                                                     <thead class="thead-dark">
                                                         <tr>

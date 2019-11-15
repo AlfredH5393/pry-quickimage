@@ -26,6 +26,7 @@ const User = new Vue({
         .then(function (response) {
           console.log(response);
           User.usuarios = response.data.users;
+          
         })
     },
     accesoUser: () => {
@@ -44,14 +45,14 @@ const User = new Vue({
 
         axios.post("controller/user_controller.php", formd)
           .then(response => {
-            if (response.data == "Administrador") {
-              alert(response.data)
+            if (response.data == "1") {
+            
               window.location.href = "view/index.php";
             } else {
               (User.alertaofaccess = "alert alert-danger"),
               (User.messagealert = "Error al iniciar sesion");
               User.btniniciartext = "Iniciando";
-              alert(response.data)
+              
             }
           });
       }

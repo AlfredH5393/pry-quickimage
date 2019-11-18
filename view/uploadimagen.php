@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
+    <title>Imagenes</title>
     <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../src/css/bootstrap.css">
     <link rel="stylesheet" href="../src/css/all.css">
@@ -43,6 +43,9 @@ session_start();
 
 
                         <div class="container">
+                            <div v-bind:class="alertgeneral" role="alert">
+                                {{messagealert}}
+                            </div>
                             <!-- Inicio de estructura generañ de Card de imagen -->
                             <div class="row" id="card-gallery" class=""
                                 style="height:355px; overflow: scroll; margin-top: 10px ">
@@ -180,8 +183,7 @@ session_start();
 
                                                 <label for="inlineFormInputGroup">Descripcion:</label>
                                                 <input type="text" class="form-control " id="descripcion-insert"
-                                                    name="descripcion-insert" placeholder="Descripcion"
-                                                    maxlength="50">
+                                                    name="descripcion-insert" placeholder="Descripcion" maxlength="50">
                                                 <label for="inlineFormInputGroup">Categoria:</label>
                                                 <select name="combo-categoria" id="combo-categoria-insert"
                                                     class="form-control">
@@ -190,6 +192,8 @@ session_start();
                                                         {{ Category.Categoria }}
                                                     </option>
                                                 </select>
+                                                <input type="text" class="form-control" id="id-user-insert"
+                                                    style="display: none;" value="<?php  echo $_SESSION['ID'] ?> ">
                                             </div>
                                         </div>
                                         <div class="col">
@@ -218,7 +222,7 @@ session_start();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                        @click="nuevoRol()">Guardar</button>
+                                        @click="nuevaImagen()">Guardar</button>
                                 </div>
                             </div>
                         </div>

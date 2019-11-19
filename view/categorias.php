@@ -128,8 +128,8 @@ session_start();
                             </div>
                             <div class="modal-body  text-center">
                                 <label for="nombre" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" v-model="elegido.Categoria" id="nombre-update">
-                                <input type="text" v-model="elegido.Id" style="display: none;" id="codigo-update">
+                                <input type="text" class="form-control" id="nombre-update">
+                                <input type="text" style="display: none;" id="codigo-update">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"
@@ -153,9 +153,9 @@ session_start();
                                 <h5 class="text-center">¿Eliminar rol?</h5>
                                 <div class="form-group">
                                     <label for="">Nombre:</label>
-                                    <input class="form-control" type="text" v-model="elegido.Categoria"
+                                    <input class="form-control" type="text" 
                                         id="nombre-delete" disabled>
-                                    <input class="form-control" type="text" v-model="elegido.Id" id="codigo-delete"
+                                    <input class="form-control" type="text" id="codigo-delete"
                                         style="display: none;">
                                 </div>
                             </div>

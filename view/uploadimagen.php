@@ -38,7 +38,7 @@ session_start();
                         <div class="container">
                             <h4 class="text-center font-weight-bold mt-2">Subir una imagen</h4>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#nueva-imagen"
-                                @click="">Nuevo</button>
+                                @click="limpiarAlertas()">Nuevo</button>
                         </div>
 
 
@@ -50,108 +50,47 @@ session_start();
                             <div class="row" id="card-gallery" class=""
                                 style="height:355px; overflow: scroll; margin-top: 10px ">
 
-                                <div class="col-4">
+                                <div class="col-4" v-for="Fotos in fotos">
                                     <!-- Inicio del contenedor  Card de imagen y botones -->
                                     <div class="card border-primary mb-4 " style="width: 18rem;">
-                                        <img class="card-img-top" src="../src/img/harleyDivison.jpg"
+                                        <img class="card-img-top" :src="'../src/img/JPG/'+Fotos.JPG" width="50"
                                             alt="Card image cap">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title ">Huejutla de Reyes</h5>
 
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title ">{{Fotos.nombre}}</h5>
+                                            <label> {{Fotos.descripcion}}</label>
                                             <div class="" style="margin-top: 1em">
                                                 <button type="button" class="btn btn-success d-block m-auto"
-                                                    data-toggle="modal" data-target="#editar-imagen">Editar</button>
+                                                    data-toggle="modal" data-target="#editar-imagen" @click="limpiarAlertas()">Editar</button>
                                             </div>
 
                                             <div class="" style="margin-top: 1em">
                                                 <button type="button" class="btn btn-danger d-block m-auto "
-                                                    data-toggle="modal" data-target="#eliminar-imagen">Eliminar</button>
+                                                    data-toggle="modal" data-target="#eliminar-imagen" @click="limpiarAlertas()">Eliminar</button>
                                             </div>
                                         </div>
 
                                         <div class="form-row m-auto ">
-                                            <div class="form-group col-md-6">
-                                                <input type="text" class="form-control d-block "
-                                                    placeholder="Para poner Id"></input>
+                                            <div class="form-group col-md-4">
+                                                <h6>
+                                                    <label> Clave:{{Fotos.Id}}</label>
+                                                </h6>
                                             </div>
-                                            <div class="form-group col-md-3">
-                                                <input type="text" class="form-control d-block "></input>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <input type="text" class="form-control  d-block "></input>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- Inicio del contenedor  Card de imagen y botones -->
-
-                                <div class="col-4">
-                                    <!-- Inicio del contenedor  Card de imagen y botones -->
-                                    <div class="card border-primary mb-4 " style="width: 18rem;">
-                                        <img class="card-img-top" src="../src/img/harleyDivison.jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title ">Huejutla de Reyes</h5>
-
-                                            <div class="" style="margin-top: 1em">
-                                                <button type="button" class="btn btn-success d-block m-auto"
-                                                    data-toggle="modal" data-target="#editar-imagen">Editar</button>
-                                            </div>
-
-                                            <div class="" style="margin-top: 1em">
-                                                <button type="button" class="btn btn-danger d-block m-auto "
-                                                    data-toggle="modal" data-target="#eliminar-imagen">Eliminar</button>
+                                            <div class="form-group col-md-8">
+                                                <h6>
+                                                    <label>Categoria: {{Fotos.categoria}}</label>
+                                                </h6>
                                             </div>
                                         </div>
-
                                         <div class="form-row m-auto ">
-                                            <div class="form-group col-md-6">
-                                                <input type="text" class="form-control d-block "
-                                                    placeholder="Para poner Id"></input>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <input type="text" class="form-control d-block "></input>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <input type="text" class="form-control  d-block "></input>
+                                            <div class="form-group col-md-12">
+                                                <h6>
+                                                    <label>Autor: {{Fotos.usuario}}</label>
+                                                </h6>
                                             </div>
                                         </div>
                                     </div>
                                 </div> <!-- Inicio del contenedor  Card de imagen y botones -->
-
-                                <div class="col-4">
-                                    <!-- Inicio del contenedor  Card de imagen y botones -->
-                                    <div class="card border-primary mb-4 " style="width: 18rem;">
-                                        <img class="card-img-top" src="../src/img/harleyDivison.jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title ">Huejutla de Reyes</h5>
-
-                                            <div class="" style="margin-top: 1em">
-                                                <button type="button" class="btn btn-success d-block m-auto"
-                                                    data-toggle="modal" data-target="#editar-imagen">Editar</button>
-                                            </div>
-
-                                            <div class="" style="margin-top: 1em">
-                                                <button type="button" class="btn btn-danger d-block m-auto "
-                                                    data-toggle="modal" data-target="#eliminar-imagen">Eliminar</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-row m-auto ">
-                                            <div class="form-group col-md-6">
-                                                <input type="text" class="form-control d-block "
-                                                    placeholder="Para poner Id"></input>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <input type="text" class="form-control d-block "></input>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <input type="text" class="form-control  d-block "></input>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- Inicio del contenedor  Card de imagen y botones -->
-
                             </div> <!-- Fin de estructura generañ de Card de imagen -->
 
                         </div>
@@ -244,10 +183,50 @@ session_start();
                                     </button>
                                 </div>
                                 <div class="modal-body  text-center">
-                                    <label for="nombre" class="col-form-label">Aqui pon todos los elementos de los
-                                        modales</label>
+                                    <div class="form-row  align-items-start">
+                                        <div class="col">
+                                            <div class="form-group col-md-8  m-auto">
+                                                <label for="inlineFormInput">Nombre:</label>
+                                                <input type="text" class="form-control" id="nombre-update"
+                                                    name="nombre-update" placeholder="Nombre" maxlength="40">
 
-
+                                                <label for="inlineFormInputGroup">Descripcion:</label>
+                                                <input type="text" class="form-control " id="descripcion-update"
+                                                    name="descripcion-update" placeholder="Descripcion" maxlength="50">
+                                                <label for="inlineFormInputGroup">Categoria:</label>
+                                                <select name="combo-categoria" id="combo-categoria-update"
+                                                    class="form-control">
+                                                    <option value="0">--Seleccione Categoria--</option>
+                                                    <option v-for="Category in categorias" v-bind:value="Category.Id">
+                                                        {{ Category.Categoria }}
+                                                    </option>
+                                                </select>
+                                                <input type="text" class="form-control" id="id-user-update"
+                                                    style="display: none;" value="<?php  echo $_SESSION['ID'] ?> ">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group col-md-8  m-auto">
+                                                <img v-if="urlPNG-update" :src="urlPNG-update" alt="" width="100" height="100"
+                                                    class="mx-auto d-block m-1">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="fotoPNG-update"
+                                                        @change="verImagenPNG">
+                                                    <label class="custom-file-label name-img8"
+                                                        for="inputGroupFile03">PNG</label>
+                                                </div>
+                                                <br>
+                                                <img v-if="urlJPG-update" :src="urlJPG-update" alt="" width="100" height="100"
+                                                    class="mx-auto d-block m-1">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="fotoJPG-update"
+                                                        @change="verImagenJPG">
+                                                    <label class="custom-file-label name-img8"
+                                                        for="inputGroupFile03">JPG</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"

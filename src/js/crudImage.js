@@ -11,12 +11,37 @@ const imagen = new Vue({
         categoria: null,
         idUser: null,
         imagenPNG: null,
-        imagenJPG: null
+        imagenJPG: null,
+        fotos:[],
+
     },
     mounted: function () {
         this.cargarComboCategorias();
+        this.cargarTablaFotografias();
     },
     methods: {
+        nuevaImagen: function () {
+            imagen.recogeValoresDeCajasdeTexto();
+            if (imagen.cajasEstanVacias()) {
+                imagen.alertgeneral = "alert alert-danger";
+                imagen.messagealert = "Existen campos vacios";
+                return false;
+            } else {
+                imagen.cargarDatosNuevos();
+            }
+        },
+
+
+        cargarTablaFotografias: function () {
+            let formdata = new FormData();
+            formdata.append("option", "showdata")
+            axios.post("../controller/image_controller.php", formdata)
+                .then(function (response) {
+                    console.log(response);
+                    imagen.fotos = response.data.imagenes;
+                })
+        },
+
         cargarComboCategorias: function () {
             let formdata = new FormData();
             formdata.append("option", "showdata")
@@ -40,18 +65,6 @@ const imagen = new Vue({
                 imagen.urlJPG = e.target.result;
             }
         },
-
-        nuevaImagen: function () {
-            imagen.recogeValoresDeCajasdeTexto();
-            if (imagen.cajasEstanVacias()) {
-                imagen.alertgeneral = "alert alert-danger";
-                imagen.messagealert = "Existen campos vacios";
-                return false;
-            } else {
-                imagen.cargarDatosNuevos();
-            }
-        },
-
 
         recogeValoresDeCajasdeTexto: function () {
             imagen.nombre = (document.getElementById("nombre-insert").value);
@@ -78,12 +91,13 @@ const imagen = new Vue({
                 imagenJPG:  document.getElementById("fotoJPG").files[0],
             };
             let formData = imagen.toFormData(datos, 'insert', datos.imagenPNG, datos.imagenJPG);
-            console.log(formData.datos);
+            
             axios.post("../controller/image_controller.php", formData)
                 .then(function (response) {
                     if (response.data == 1) {
                         imagen.alertgeneral = "alert alert-success";
                         imagen.messagealert = "Imagenes guardadas con exito!";
+                        imagen.cargarTablaFotografias();
                     } else if (response.data == "") {
                         imagen.alertgeneral = 'alert alert-danger';
                         imagen.messagealert = 'Ocurrio un error al subir las imagenes';
@@ -112,6 +126,10 @@ const imagen = new Vue({
               }
             }
             return fd;
+          },
+          limpiarAlertas: () => {
+            imagen.alertgeneral = null;
+            imagen.messagealert = null;
           }
     }
 });

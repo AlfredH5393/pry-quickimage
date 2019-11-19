@@ -70,7 +70,7 @@ const rol = new Vue({
             }
         },
         eliminarRol: function () {
-            if ((document.getElementById("nombreEditar_rol").value) == 0) {
+            if ((document.getElementById("nombreEliminar_rol").value) == 0) {
                 rol.tipoalertaEli = 'alert alert-danger',
                 rol.mensajesEli = 'Campo vacio'
             } else {
@@ -91,10 +91,12 @@ const rol = new Vue({
             }
         },
         pasarDatosEditar(Rol) {
-            rol.elegido = Rol;
+            document.getElementById("nombreEditar_rol").value = Rol.rol;
+            document.getElementById("codigoEditar_rol").value = Rol.Id;
         },
         pasarDatosEliminar(Rol) {
-            rol.elegido = Rol;
+            document.getElementById("nombreEliminar_rol").value = Rol.rol;
+            document.getElementById("codigoEliminar_rol").value = Rol.Id;
         },
         limpiar(){
             rol.mensajesA= null,

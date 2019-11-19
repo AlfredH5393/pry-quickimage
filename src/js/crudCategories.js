@@ -97,10 +97,12 @@ const Category = new Vue({
       Category.alertgeneral = null;
     },
     pasarDatosEditar: (categoria) => {
-      Category.elegido = categoria;
+      document.getElementById("codigo-update").value=categoria.Id;
+      document.getElementById("nombre-update").value= categoria.Categoria;
     },
     pasarDatosEliminar: (categoria) => {
-      Category.elegido = categoria;
+      document.getElementById("codigo-delete").value=categoria.Id;
+      document.getElementById("nombre-delete").value= categoria.Categoria;
     }
   }
 });

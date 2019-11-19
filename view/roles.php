@@ -130,8 +130,8 @@ session_start();
                                         </div>
                                         <div class="modal-body  text-center">
                                             <label for="nombre" class="col-form-label">Nombre:</label>
-                                            <input type="text" class="form-control" v-model="elegido.rol" id="nombreEditar_rol">
-                                            <input type="text" v-model="elegido.Id" style="display: none;"
+                                            <input type="text" class="form-control"  id="nombreEditar_rol">
+                                            <input type="text"  style="display: none;"
                                                 id="codigoEditar_rol">
                                         </div>
                                         <div class="modal-footer">
@@ -156,9 +156,9 @@ session_start();
                                             <h5 class="text-center">¿Eliminar rol?</h5>
                                             <div class="form-group">
                                                 <label for="">Nombre:</label>
-                                                <input class="form-control" type="text" v-model="elegido.rol"
+                                                <input class="form-control" type="text"
                                                     id="nombreEliminar_rol" disabled>
-                                                <input class="form-control" type="text" v-model="elegido.Id"
+                                                <input class="form-control" type="text" 
                                                     id="codigoEliminar_rol" style="display: none;">
                                             </div>
                                         </div>

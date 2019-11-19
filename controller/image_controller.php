@@ -15,10 +15,17 @@ switch($operacion)
         $filenameJPG=$_FILES['imagenJPG']['name'];
         $sourcepatJPG=$_FILES["imagenJPG"]['tmp_name']; 
         //--------------------------------------------
-        if(($objusuario->insert($_POST['nombre'],$_POST['descripcion'],$_POST['categoria'],$_POST['idUser']))=="1"){
-            $final =  $objusuario->insertImage($imagenPNG,$filenamePNG,$sourcepatPNG,$imagenJPG,$filenameJPG,$sourcepatJPG);
+        if( $_FILES['imagenPNG']["type"]=="image/png" && ($_FILES['imagenJPG']["type"]=="image/jpeg" || ($_FILES['imagenJPG']["type"]=="image/jpg")) ){
+            $final = $objusuario->insert($_POST['nombre'],$_POST['descripcion'],$_POST['categoria'],$_POST['idUser']);
+            if($final=="1"){
+                echo  $objusuario->insertImage($imagenPNG,$filenamePNG,$sourcepatPNG,$imagenJPG,$filenameJPG,$sourcepatJPG);
+            }else{
+                echo $final;
+            }
+        
+        }else{
+            echo 'Las extenciones no son las perminitas';
         }
-        echo $final;
     break;
 
     case 'update':
@@ -33,7 +40,7 @@ switch($operacion)
     break;
     
     case 'showdata':
-        echo $objusuario->getDatos();
+        echo $objusuario->getdatos();
     break;
 
     case 'updateOffPhoto':

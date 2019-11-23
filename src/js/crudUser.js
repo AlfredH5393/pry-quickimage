@@ -268,10 +268,16 @@ const User = new Vue({
       }
     },
     pasarDatosEditar: (Usuarios) => {
-      User.elegido = Usuarios;
-      User.url2 = '../src/img/' + User.elegido.img;
+      document.getElementById("id-user-update").value= Usuarios.Id;
+      document.getElementById("nombre-update").value = Usuarios.nombre;
+      document.getElementById("apepaterno-update").value = Usuarios.Apepaterno;
+      document.getElementById("apematerno-update").value = Usuarios.Apematerno;
+      document.getElementById("correo-update").value = Usuarios.correo;
+      document.getElementById("usuario-update").value = Usuarios.usuario;
+      document.getElementById("password-update").value = Usuarios.pass;
+      User.url2 = '../src/img/' +Usuarios.img;
       console.log(User.url2);
-      document.getElementById("combo-rol-update").value = User.elegido.rol;
+      document.getElementById("combo-rol-update").value = Usuarios.rol;
     },
     pasarDatosEliminar: (Usuarios) => {
       User.elegido = Usuarios;

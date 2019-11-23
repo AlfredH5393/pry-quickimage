@@ -39,7 +39,6 @@ class rol{
             'rol'=> $rol     
           );
       }
-       
        $encabezado=array("roles"=>$roles);
        $json_string = json_encode($encabezado,JSON_UNESCAPED_UNICODE);
       return $json_string;

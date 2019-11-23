@@ -61,12 +61,12 @@ session_start();
                                             <label> {{Fotos.descripcion}}</label>
                                             <div class="" style="margin-top: 1em">
                                                 <button type="button" class="btn btn-success d-block m-auto"
-                                                    data-toggle="modal" data-target="#editar-imagen" @click="limpiarAlertas()">Editar</button>
+                                                    data-toggle="modal" data-target="#editar-imagen" @click="limpiarAlertas();pasarDatosEditar(Fotos)">Editar</button>
                                             </div>
 
                                             <div class="" style="margin-top: 1em">
                                                 <button type="button" class="btn btn-danger d-block m-auto "
-                                                    data-toggle="modal" data-target="#eliminar-imagen" @click="limpiarAlertas()">Eliminar</button>
+                                                    data-toggle="modal" data-target="#eliminar-imagen" @click="limpiarAlertas();pasarDatosEliminar(Fotos)">Eliminar</button>
                                             </div>
                                         </div>
 
@@ -198,29 +198,31 @@ session_start();
                                                     class="form-control">
                                                     <option value="0">--Seleccione Categoria--</option>
                                                     <option v-for="Category in categorias" v-bind:value="Category.Id">
-                                                        {{ Category.Categoria }}
+                                                            {{ Category.Categoria }}
                                                     </option>
                                                 </select>
                                                 <input type="text" class="form-control" id="id-user-update"
                                                     style="display: none;" value="<?php  echo $_SESSION['ID'] ?> ">
+                                                <input type="text" class="form-control" id="idImagen-update"
+                                                    style="display: none;">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group col-md-8  m-auto">
-                                                <img v-if="urlPNG-update" :src="urlPNG-update" alt="" width="100" height="100"
+                                                <img v-if="urlPNG_update" :src="urlPNG_update" alt="" width="100" height="100"
                                                     class="mx-auto d-block m-1">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="fotoPNG-update"
-                                                        @change="verImagenPNG">
+                                                        @change="verImagenPNG_update">
                                                     <label class="custom-file-label name-img8"
                                                         for="inputGroupFile03">PNG</label>
                                                 </div>
                                                 <br>
-                                                <img v-if="urlJPG-update" :src="urlJPG-update" alt="" width="100" height="100"
+                                                <img v-if="urlJPG_update" :src="urlJPG_update" alt="" width="100" height="100"
                                                     class="mx-auto d-block m-1">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="fotoJPG-update"
-                                                        @change="verImagenJPG">
+                                                        @change="verImagenJPG_update">
                                                     <label class="custom-file-label name-img8"
                                                         for="inputGroupFile03">JPG</label>
                                                 </div>
@@ -230,7 +232,7 @@ session_start();
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                        @click="nuevoRol()">Guardar</button>
+                                        @click="editarImagen()">Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -245,20 +247,21 @@ session_start();
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Elimninar Imagen</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Imagen</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body  text-center">
-                                    <label for="nombre" class="col-form-label">Aqui pon todos los elementos de los
-                                        modales</label>
-
-
+                                    <img v-if="urlJPG_delete" :src="urlJPG_delete" alt="" width="100" height="100"
+                                                    class="mx-auto d-block m-1">
+                                    <input type="text" class="form-control " id="descripcion-delete"  placeholder="Descripcion" maxlength="50" disabled >
+                                    <input type="text" class="form-control " id="id-image-delete" maxlength="50" style="display: none;">
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                        @click="nuevoRol()">Guardar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                        @click="elimarImagen()">SI</button>
                                 </div>
                             </div>
                         </div>

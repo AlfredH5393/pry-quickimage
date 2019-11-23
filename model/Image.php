@@ -11,7 +11,6 @@ class Image{
        $insert=mysqli_query($connect->conectarbd(),$sql);
        return $insert;
     }  
-
     public function insertImage($imagenPNG,$filenamePNG,$sourcepatPNG,$imagenJPG,$filenameJPG,$sourcepatJPG){
       $connect = new conexion();
       $sql1="SELECT MAX(idImagen) AS maximo FROM tblimagenes";  
@@ -49,69 +48,133 @@ class Image{
     }
   }
 
+  public function update($idImagen,$nombre,$descripcion,$fkCategoria,$fkUsuario){
+    $connect= new conexion();
+    $sql="UPDATE `dbquickimage`.`tblimagenes`
+          SET `nombre` = '$nombre',
+              `Descripcion` = '$descripcion',
+              `fk_Categoria` = '$fkCategoria',
+              `fk_Usuario` = '$fkUsuario'
+          WHERE `idImagen` = '$idImagen';";
+    $update=mysqli_query($connect->conectarbd(),$sql);
+    return $update; 
+}
 
-    public function update($id,$nombre,$descripcion,$fkCategoria,$fkUsuario){
-       $connect= new conexion();
-       $sql="UPDATE `dbquickimage`.`tblimagenes`
-       SET 
-         `nombre` = '$nombre',
-         `Descripcion` = '$descripcion',
-         `fk_Categoria` = '$fkCategoria',
-         `fk_Usuario` = '$fkUsuario'
-       WHERE `idImagen` = '$id';";
-       $update=mysqli_query($connect->conectarbd(),$sql);
-       return $update; 
-    }
 
-    public  function delete($id){
-       $connect= new conexion();
-       $sql="DELETE
-       FROM `dbquickimage`.`tblimagenes`
-       WHERE `idImagen` = '$id';";
-       $delete=mysqli_query($connect->conectarbd(),$sql);
-       return $delete;
-    }
 
-    public  function getdatos(){ 
-      $conectar = new conexion();
-        $sql="SELECT tblimagenes.`idImagen`,
-              tblimagenes.`nombre`,
-              tbldescargas.PNG,
-              tbldescargas.JPG,
-              tblimagenes.`Descripcion`,
-              tblcategoria.Nombre AS `fk_Categoria`,
-              CONCAT(vchNombre,' ', vchApellidoM) AS `fk_Usuario`
-              FROM tblimagenes, tbldescargas, tblusuarios, tblcategoria
-              WHERE idImagen=fk_Imagen AND fk_Usuario = idUsuario AND fk_Categoria=idCategoria ORDER BY `idImagen`";  
-
-      mysqli_set_charset($conectar->conectarbd(),"utf8");
-      if(!$select=mysqli_query($conectar->conectarbd(),$sql)) die("Error al consultar");
-      $imagenes=array();
-       
-      while($row=mysqli_fetch_array($select)){
-          $id=$row['idImagen'];
-          $nombre=$row['nombre'];
-          $PNG = $row['PNG'];
-          $JPG = $row['JPG'];
-          $descripcion=$row['Descripcion'];
-          $categoria=$row['fk_Categoria'];
-          $usuario=$row['fk_Usuario'];
-          
-          $imagenes[] = array(
-            'Id'=> $id,
-            'nombre'=> $nombre,
-            'PNG' => $PNG,
-            'JPG'=>$JPG,
-            'descripcion'=>$descripcion,
-            'categoria'=>$categoria,
-            'usuario'=>$usuario    
-          );
+  public function updateImage($idImage,$filenamePNG,$sourcepatPNG,$filenameJPG,$sourcepatJPG){
+      $connect= new conexion();
+      $sql="UPDATE `dbquickimage`.`tbldescargas`
+            SET `PNG` = '$filenamePNG', 
+            JPG = '$filenameJPG'
+            WHERE `fk_Imagen` = '$idImage';";
+      $update=mysqli_query($connect->conectarbd(),$sql);
+      if($update){
+        $rutaPNG="../src/img/PNG/".$filenamePNG;
+        $rutaJPG="../src/img/JPG/".$filenameJPG;
+        @move_uploaded_file($sourcepatJPG,$rutaJPG);
+        @move_uploaded_file($sourcepatPNG,$rutaPNG);
       }
-       
-       $encabezado=array("imagenes"=>$imagenes);
-       $json_string = json_encode($encabezado,JSON_UNESCAPED_UNICODE);
-      return $json_string;
 
+      return $update; 
+  }
+
+  public function updateImageOnlyPNG($idImage,$filenamePNG,$sourcepatPNG){
+     $connect =  new conexion();
+     $sql = "UPDATE `dbquickimage`.`tbldescargas`
+              SET `PNG` = '$filenamePNG'
+              WHERE `fk_Imagen` = '$idImage';";
+      $updateOnlyPNG = mysqli_query($connect->conectarbd(),$sql);
+      if($updateOnlyPNG){
+        $rutaPNG="../src/img/PNG/".$filenamePNG;
+        @move_uploaded_file($sourcepatPNG,$rutaPNG);
+      }else{
+        $updateOnlyPNG = "<script>alert('Archivo no permitido')</script>";
+      }
+      return $updateOnlyPNG;
+  }
+
+  
+  public function updateImageOnlyJPG($idImage,$filenameJPG,$sourcepatJPG){
+    $connect =  new conexion();
+    $sql = "UPDATE tbldescargas SET `JPG` = '$filenameJPG' WHERE `fk_Imagen` = '$idImage'";
+
+    $updateOnlyJPG = mysqli_query($connect->conectarbd(),$sql);
+
+    if($updateOnlyJPG){
+      $rutaJPG="../src/img/JPG/".$filenameJPG;
+      @move_uploaded_file($sourcepatJPG,$rutaJPG);
+    }else{
+      $updateOnlyJPG = "<script>alert('Archivo no permitido')</script>";
     }
+     return $updateOnlyJPG;
+  }
+
+
+
+
+
+  public  function delete($id){
+      $connect= new conexion();
+      $sqlDeleteDownload="DELETE FROM `dbquickimage`.`tbldescargas` WHERE `fk_Imagen` = '$id';";
+      $deleteDownload=mysqli_query($connect->conectarbd(),$sqlDeleteDownload);
+      if($deleteDownload){
+        $sqlDeleteImage="DELETE FROM `dbquickimage`.`tblimagenes` WHERE `idImagen` = '$id';";
+        $deleteImage=mysqli_query($connect->conectarbd(),$sqlDeleteImage);
+        if($deleteImage){
+          $delete = $deleteImage;
+        }else{
+          $delete = "Ocurrio un error al eliminar imagenes";
+        }
+      }else{
+        $delete = "Ocurrio un error al eliminar imagenes";
+      } 
+      return $delete;
+  }
+
+  public  function getdatos(){ 
+    $conectar = new conexion();
+      $sql="SELECT tblimagenes.`idImagen`,
+            tblimagenes.`nombre`,
+            tbldescargas.PNG,
+            tbldescargas.JPG,
+            tblimagenes.`Descripcion`,
+            tblcategoria.Nombre AS `categoria`,
+            tblcategoria.`idCategoria` AS fk_Categoria,
+            CONCAT(vchNombre,' ', vchApellidoM) AS `fk_Usuario`
+            FROM tblimagenes, tbldescargas, tblusuarios, tblcategoria
+            WHERE idImagen=fk_Imagen AND fk_Usuario = idUsuario AND fk_Categoria=idCategoria ORDER BY `idImagen`";  
+
+    mysqli_set_charset($conectar->conectarbd(),"utf8");
+    if(!$select=mysqli_query($conectar->conectarbd(),$sql)) die("Error al consultar");
+    $imagenes=array();
+      
+    while($row=mysqli_fetch_array($select)){
+        $id=$row['idImagen'];
+        $nombre=$row['nombre'];
+        $PNG = $row['PNG'];
+        $JPG = $row['JPG'];
+        $descripcion=$row['Descripcion'];
+        $categoria = $row['categoria'];
+        $Idcategoria=$row['fk_Categoria'];
+        $usuario=$row['fk_Usuario'];
+        
+        $imagenes[] = array(
+          'Id'=> $id,
+          'nombre'=> $nombre,
+          'PNG' => $PNG,
+          'JPG'=>$JPG,
+          'descripcion'=>$descripcion,
+          'categoria'=>$categoria,
+          'idCategoria' => $Idcategoria,
+          'usuario'=>$usuario    
+        );
+    }
+      
+      $encabezado=array("imagenes"=>$imagenes);
+      $json_string = json_encode($encabezado,JSON_UNESCAPED_UNICODE);
+    return $json_string;
+
+  }
 }
 ?>

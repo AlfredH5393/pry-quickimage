@@ -222,7 +222,7 @@ session_start();
                                     <input type="text" class="form-control" v-model="elegido.rol" id="nombreEditar_rol"> -->
                                     
                                         <form action=""  enctype="multipart/form-data">
-                                        <input type="text" v-model="elegido.Id" style="display: none;"
+                                        <input type="text" style="display: none;"
                                         id="id-user-update"> 
                                         <label  for="inlineFormInput">Imagen de perfil actual:</label>
                                         <img v-if="url2" :src="url2"  alt="" width="150" height="150" class="mx-auto d-block m-1 img-user" >
@@ -232,14 +232,14 @@ session_start();
                                                     <div class="col" >
                                                         <div class="form-group col-md-8 m-auto">
                                                             <label  for="inlineFormInput">Nombre:</label>
-                                                            <input type="text" class="form-control"  v-model="elegido.nombre"  id="nombre-update" name="nombre-insert" placeholder="Nombre" maxlength="40">
+                                                            <input type="text" class="form-control"    id="nombre-update" name="nombre-insert" placeholder="Nombre" maxlength="40">
                                                             
                                                             
                                                             <label  for="inlineFormInputGroup">Apellido paterno:</label>
-                                                            <input type="text" class="form-control " v-model="elegido.Apepaterno" id="apepaterno-update" name="apepaterno-insert" placeholder="Apellido paterno" maxlength="50">
+                                                            <input type="text" class="form-control " id="apepaterno-update" name="apepaterno-insert" placeholder="Apellido paterno" maxlength="50">
 
                                                             <label  for="inlineFormInputGroup">Apellido materno:</label>
-                                                            <input type="text" class="form-control  " v-model="elegido.Apematerno" id="apematerno-update" name="apematerno-insert"  placeholder="Apellido materno" maxlength="100">
+                                                            <input type="text" class="form-control  "  id="apematerno-update" name="apematerno-insert"  placeholder="Apellido materno" maxlength="100">
 
                                                             <label  for="inlineFormInputGroup">Rol:</label>
                                                             <select name="combo-rol" id="combo-rol-update" class="form-control" >
@@ -262,14 +262,14 @@ session_start();
                                                             </div> 
                                                        
                                                             <label  for="inlineFormInput">Correo:</label>
-                                                            <input type="email" class="form-control" v-model="elegido.correo" id="correo-update" name="correo-inser" placeholder="Nombre" maxlength="40">
+                                                            <input type="email" class="form-control" id="correo-update" name="correo-inser" placeholder="Nombre" maxlength="40">
                                                             
                                                             
                                                             <label  for="inlineFormInputGroup">Usuario:</label>
-                                                            <input type="text" class="form-control " id="usuario-update" v-model="elegido.usuario" name="usuario-insert" placeholder="Apellido paterno" maxlength="90">
+                                                            <input type="text" class="form-control " id="usuario-update" name="usuario-insert" placeholder="Apellido paterno" maxlength="90">
 
-                                                            <label  for="inlineFormInputGroup">contraseña:</label>
-                                                            <input type="password" class="form-control  " id="password-update"  v-model="elegido.pass"  name="password-insert"  placeholder="Apellido materno"maxlength="100">
+                                                            <label  for="inlineFormInputGroup">Contraseña:</label>
+                                                            <input type="password" class="form-control  " id="password-update"   name="password-insert"  placeholder="Apellido materno"maxlength="100">
                                                          
                                                         </div>
                                                     </div>

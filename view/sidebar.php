@@ -45,9 +45,7 @@
             <li>
                 <a href="usuarios.php"><i class="fa fa-user  fa-1x"></i> Usuarios</a>
             </li>
-            <li>
-                <a href="download.php"><i class="fa fa-download  fa-1x"></i> Descargas</a>
-            </li>
+            
         <?php
             } else {
         ?>

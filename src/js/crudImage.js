@@ -35,7 +35,9 @@ const imagen = new Vue({
         },
         cargarTablaFotografias: function () {
             let formdata = new FormData();
-            formdata.append("option", "showdata")
+            let iduser = document.getElementById("id-user").value;
+            formdata.append("option", "showdata");
+            formdata.append("id-user",iduser);
             axios.post("../controller/image_controller.php", formdata)
                 .then(function (response) {
                     console.log(response);
@@ -97,6 +99,7 @@ const imagen = new Vue({
                         imagen.alertgeneral = "alert alert-success";
                         imagen.messagealert = "Imagenes guardadas con exito!";
                         imagen.cargarTablaFotografias();
+                        imagen.vaciarCajas();
                     } else if (response.data == "") {
                         imagen.alertgeneral = 'alert alert-danger';
                         imagen.messagealert = 'Ocurrio un error al subir las imagenes';
@@ -240,5 +243,15 @@ const imagen = new Vue({
             document.getElementById("descripcion-delete").value = imagenes.nombre;
             imagen.urlJPG_delete = '../src/img/JPG/' + imagenes.JPG;
         },
+        vaciarCajas: () =>{
+            document.getElementById("nombre-insert").value = '';
+            document.getElementById("descripcion-insert").value = '';
+            document.getElementById("combo-categoria-insert").value = 0;
+            document.getElementById("fotoPNG").value = '';
+            document.getElementById("fotoJPG").value = '';
+            imagen.urlJPG = '';
+            imagen.urlPNG = '';
+
+        }
     }
 });

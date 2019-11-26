@@ -311,10 +311,10 @@ const User = new Vue({
       document.getElementById("nombre-insert").value = " ";
       document.getElementById("apepaterno-insert").value = "";
       document.getElementById("apematerno-insert").value = "";
-      document.getElementById("combo-rol-insert").value = "";
+      document.getElementById("combo-rol-insert").value = 0;
       document.getElementById("correo-insert").value = "";
       document.getElementById("usuario-insert").value = "";
-      document.getElementById("foto").files[0] = '';
+      document.getElementById("foto").value = '';
       document.getElementById("password-insert").value = ""
       User.url = '';
     }

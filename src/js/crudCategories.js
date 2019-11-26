@@ -28,8 +28,7 @@ const Category = new Vue({
     },
     nuevaCategoria: function () {
       if ((document.getElementById("nombreCategoria").value) == 0) {
-        Category.alertgeneral = 'alert alert-danger',
-          Category.alertaofaccess = 'Campos vacios'
+          Category.mostraAlertas('alert alert-danger','Campos vacios');
         return false;
       } else {
         let formdata = new FormData();
@@ -40,11 +39,9 @@ const Category = new Vue({
             if (response.data == 1) {
               Category.getDatos()
               document.getElementById("nombreCategoria").value = '',
-                Category.alertgeneral = 'alert alert-success',
-                Category.alertaofaccess = 'Categoria agregado correctamente'
+              Category.mostraAlertas('alert alert-success','Categoria agregada correctamente');
             } else if (response.data == "") {
-              Category.alertgeneral = 'alert alert-danger',
-                Category.alertaofaccess = 'Error, el categoria ya existe'
+                Category.mostraAlertas('alert alert-danger','Error, la categoria ya existe');
             }
 
           })
@@ -52,8 +49,7 @@ const Category = new Vue({
     },
     editarCategoria: () => {
       if ((document.getElementById("nombre-update").value) == 0) {
-        Category.alertgeneral = 'alert alert-danger',
-          Category.alertaofaccess = 'Campo vacios'
+          Category.mostraAlertas('alert alert-danger','Campo vacio');
         return false;
       } else {
         let formdata = new FormData();
@@ -64,16 +60,16 @@ const Category = new Vue({
           .then(function (response) {
             if (response.data == 1) {
               Category.getDatos()
-              Category.alertgeneral = 'alert alert-success',
-                Category.alertaofaccess = 'El rol se ah editado corrrectamente'
+                Category.mostraAlertas('alert alert-success','La categoria se ah editado corrrectamente');
+            }else{
+              Category.mostraAlertas('alert alert-danger','La categoria no pudo ser editada, intenta más tarde');
             }
           })
       }
     },
     eliminarCategoria: function () {
       if ((document.getElementById("nombre-delete").value) == 0) {
-        Category.alertgeneral = 'alert alert-danger',
-        Category.alertaofaccess = 'Campo vacio'
+        Category.mostraAlertas('alert alert-danger','Campo vacio');
       } else {
         let formdata = new FormData();
         formdata.append("option", "delete")
@@ -81,12 +77,10 @@ const Category = new Vue({
         axios.post("../controller/category_controller.php", formdata)
           .then(function (response) {
             if (response.data == 1) {
-              Category.getDatos()
-              Category.alertgeneral = 'alert alert-success',
-              Category.alertaofaccess = 'El rol se ah eliminado corrrectamente'
+              Category.getDatos();
+              Category.mostraAlertas('alert alert-success','La categoria se ah eliminado corrrectamente');
             } else if (response.data == "") {
-              Category.alertgeneral = 'alert alert-danger',
-              Category.alertaofaccess = 'Error al eliminar, el rol esta asignado a por lo menos 1 usuario'
+              Category.mostraAlertas('alert alert-danger','Error al eliminar, la categoria esta asignado a por lo menos 1 imagen')
             }
           })
       }
@@ -103,6 +97,11 @@ const Category = new Vue({
     pasarDatosEliminar: (categoria) => {
       document.getElementById("codigo-delete").value=categoria.Id;
       document.getElementById("nombre-delete").value= categoria.Categoria;
+    },
+    mostraAlertas: (clase,mensajes) => {
+      Category.alertgeneral = clase;
+      Category.alertaofaccess = mensajes;
     }
+
   }
 });

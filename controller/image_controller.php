@@ -106,7 +106,8 @@ switch($operacion)
     break;
     
     case 'showdata':
-        echo $objusuario->getdatos();
+        $idUser= $_POST['id-user'];
+        echo $objusuario->getdatos($idUser);
     break;
 }
 ?>

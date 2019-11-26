@@ -39,18 +39,19 @@ session_start();
                             <h4 class="text-center font-weight-bold mt-2">Subir una imagen</h4>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#nueva-imagen"
                                 @click="limpiarAlertas()">Nuevo</button>
+                                <input type="" id="id-user" value="<?php  echo $_SESSION['ID'] ?>" class="d-none">
                         </div>
 
 
-                        <div class="container">
+                        <div class="container mt-3 text-center">
                             <div v-bind:class="alertgeneral" role="alert">
                                 {{messagealert}}
                             </div>
                             <!-- Inicio de estructura generañ de Card de imagen -->
-                            <div class="row" id="card-gallery" class=""
+                            <div class="row m-auto" id="card-gallery" class=""
                                 style="height:355px; overflow: scroll; margin-top: 10px ">
 
-                                <div class="col-4" v-for="Fotos in fotos">
+                                <div class="col-auto" v-for="Fotos in fotos">
                                     <!-- Inicio del contenedor  Card de imagen y botones -->
                                     <div class="card border-primary mb-4 " style="width: 18rem;">
                                         <img class="card-img-top" :src="'../src/img/JPG/'+Fotos.JPG" width="50"
@@ -70,20 +71,20 @@ session_start();
                                             </div>
                                         </div>
 
-                                        <div class="form-row m-auto ">
-                                            <div class="form-group col-md-4">
+                                        <div class="form-row m-auto text-center">
+                                            <div class="form-group col ">
                                                 <h6>
-                                                    <label> Clave:{{Fotos.Id}}</label>
+                                                    <label> Clave: {{Fotos.Id}}</label>
                                                 </h6>
                                             </div>
-                                            <div class="form-group col-md-8">
+                                            <div class="form-group col">
                                                 <h6>
                                                     <label>Categoria: {{Fotos.categoria}}</label>
                                                 </h6>
                                             </div>
                                         </div>
                                         <div class="form-row m-auto ">
-                                            <div class="form-group col-md-12">
+                                            <div class="form-group col">
                                                 <h6>
                                                     <label>Autor: {{Fotos.usuario}}</label>
                                                 </h6>
@@ -115,14 +116,14 @@ session_start();
                                 <div class="modal-body  text-center">
                                     <div class="form-row  align-items-start">
                                         <div class="col">
-                                            <div class="form-group col-md-8  m-auto">
+                                            <div class="form-group col-md-10  m-auto">
                                                 <label for="inlineFormInput">Nombre:</label>
                                                 <input type="text" class="form-control" id="nombre-insert"
-                                                    name="nombre-insert" placeholder="Nombre" maxlength="40">
+                                                    name="nombre-insert"  maxlength="40">
 
                                                 <label for="inlineFormInputGroup">Descripcion:</label>
                                                 <input type="text" class="form-control " id="descripcion-insert"
-                                                    name="descripcion-insert" placeholder="Descripcion" maxlength="50">
+                                                    name="descripcion-insert" maxlength="50">
                                                 <label for="inlineFormInputGroup">Categoria:</label>
                                                 <select name="combo-categoria" id="combo-categoria-insert"
                                                     class="form-control">
@@ -136,8 +137,9 @@ session_start();
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group col-md-8  m-auto">
-                                                <img v-if="urlPNG" :src="urlPNG" alt="" width="100" height="100"
+                                            <div class="form-group col-md-10  m-auto">
+                                            <label for="inlineFormInputGroup">Seleccione formato de imagen:</label>
+                                                <img v-if="urlPNG" :src="urlPNG" alt="" width="150" 
                                                     class="mx-auto d-block m-1">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="fotoPNG"
@@ -145,8 +147,9 @@ session_start();
                                                     <label class="custom-file-label name-img8"
                                                         for="inputGroupFile03">PNG</label>
                                                 </div>
-                                                <br>
-                                                <img v-if="urlJPG" :src="urlJPG" alt="" width="100" height="100"
+                                                <br><br>
+                                                <label for="inlineFormInputGroup">Seleccione formato de imagen:</label>
+                                                <img v-if="urlJPG" :src="urlJPG" alt="" width="150" 
                                                     class="mx-auto d-block m-1">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="fotoJPG"
@@ -185,7 +188,7 @@ session_start();
                                 <div class="modal-body  text-center">
                                     <div class="form-row  align-items-start">
                                         <div class="col">
-                                            <div class="form-group col-md-8  m-auto">
+                                            <div class="form-group col-md-10  m-auto">
                                                 <label for="inlineFormInput">Nombre:</label>
                                                 <input type="text" class="form-control" id="nombre-update"
                                                     name="nombre-update" placeholder="Nombre" maxlength="40">
@@ -208,8 +211,9 @@ session_start();
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group col-md-8  m-auto">
-                                                <img v-if="urlPNG_update" :src="urlPNG_update" alt="" width="100" height="100"
+                                            <div class="form-group col-md-80  m-auto">
+                                            <label for="inlineFormInputGroup">Seleccione formato de imagen:</label>
+                                                <img v-if="urlPNG_update" :src="urlPNG_update" alt="" width="150" 
                                                     class="mx-auto d-block m-1">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="fotoPNG-update"
@@ -217,8 +221,9 @@ session_start();
                                                     <label class="custom-file-label name-img8"
                                                         for="inputGroupFile03">PNG</label>
                                                 </div>
-                                                <br>
-                                                <img v-if="urlJPG_update" :src="urlJPG_update" alt="" width="100" height="100"
+                                                <br><br>
+                                                <label for="inlineFormInputGroup">Seleccione formato de imagen:</label>
+                                                <img v-if="urlJPG_update" :src="urlJPG_update" alt="" width="150" 
                                                     class="mx-auto d-block m-1">
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="fotoJPG-update"
@@ -253,7 +258,7 @@ session_start();
                                     </button>
                                 </div>
                                 <div class="modal-body  text-center">
-                                    <img v-if="urlJPG_delete" :src="urlJPG_delete" alt="" width="100" height="100"
+                                    <img v-if="urlJPG_delete" :src="urlJPG_delete" alt="" width="150"
                                                     class="mx-auto d-block m-1">
                                     <input type="text" class="form-control " id="descripcion-delete"  placeholder="Descripcion" maxlength="50" disabled >
                                     <input type="text" class="form-control " id="id-image-delete" maxlength="50" style="display: none;">

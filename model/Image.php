@@ -132,19 +132,28 @@ class Image{
       return $delete;
   }
 
-  public  function getdatos(){ 
+  public  function getdatos($id){ 
     $conectar = new conexion();
-      $sql="SELECT tblimagenes.`idImagen`,
-            tblimagenes.`nombre`,
-            tbldescargas.PNG,
-            tbldescargas.JPG,
-            tblimagenes.`Descripcion`,
-            tblcategoria.Nombre AS `categoria`,
-            tblcategoria.`idCategoria` AS fk_Categoria,
-            CONCAT(vchNombre,' ', vchApellidoM) AS `fk_Usuario`
-            FROM tblimagenes, tbldescargas, tblusuarios, tblcategoria
-            WHERE idImagen=fk_Imagen AND fk_Usuario = idUsuario AND fk_Categoria=idCategoria ORDER BY `idImagen`";  
-
+      // $sql="SELECT tblimagenes.`idImagen`,
+      //       tblimagenes.`nombre`,
+      //       tbldescargas.PNG,
+      //       tbldescargas.JPG,
+      //       tblimagenes.`Descripcion`,
+      //       tblcategoria.Nombre AS `categoria`,
+      //       tblcategoria.`idCategoria` AS fk_Categoria,
+      //       CONCAT(vchNombre,' ', vchApellidoM) AS `fk_Usuario`
+      //       FROM tblimagenes, tbldescargas, tblusuarios, tblcategoria
+      //       WHERE idImagen=fk_Imagen AND fk_Usuario = idUsuario AND fk_Categoria=idCategoria ORDER BY `idImagen`";  
+      $sql ="SELECT tblimagenes.`idImagen`,
+      tblimagenes.`nombre`,
+      tbldescargas.PNG,
+      tbldescargas.JPG,
+      tblimagenes.`Descripcion`,
+      tblcategoria.Nombre AS `categoria`,
+      tblcategoria.`idCategoria` AS fk_Categoria,
+      CONCAT(vchNombre,' ', vchApellidoM) AS `fk_Usuario`
+      FROM tblimagenes, tbldescargas, tblusuarios, tblcategoria
+      WHERE idImagen=fk_Imagen AND fk_Usuario = idUsuario AND fk_Categoria=idCategoria AND `fk_Usuario`= '$id' ORDER BY `idImagen`;";
     mysqli_set_charset($conectar->conectarbd(),"utf8");
     if(!$select=mysqli_query($conectar->conectarbd(),$sql)) die("Error al consultar");
     $imagenes=array();

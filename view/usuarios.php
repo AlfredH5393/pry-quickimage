@@ -147,14 +147,14 @@ session_start();
                                                     <div class="col" >
                                                         <div class="form-group col-md-8  m-auto">
                                                             <label  for="inlineFormInput">Nombre:</label>
-                                                            <input type="text" class="form-control"  id="nombre-insert" name="nombre-insert" placeholder="Nombre" maxlength="40">
+                                                            <input type="text" class="form-control"  id="nombre-insert" name="nombre-insert" maxlength="40">
                                                             
                                                             
                                                             <label  for="inlineFormInputGroup">Apellido paterno:</label>
-                                                            <input type="text" class="form-control " id="apepaterno-insert" name="apepaterno-insert" placeholder="Apellido paterno" maxlength="50">
+                                                            <input type="text" class="form-control " id="apepaterno-insert" name="apepaterno-insert"  maxlength="50">
 
                                                             <label  for="inlineFormInputGroup">Apellido materno:</label>
-                                                            <input type="text" class="form-control  " id="apematerno-insert" name="apematerno-insert"  placeholder="Apellido materno" maxlength="100">
+                                                            <input type="text" class="form-control  " id="apematerno-insert" name="apematerno-insert"   maxlength="100">
 
                                                             <label  for="inlineFormInputGroup">Rol:</label>
                                                             <select name="combo-rol" id="combo-rol-insert" class="form-control">
@@ -180,14 +180,14 @@ session_start();
                                                            
                                                              
                                                             <label  for="inlineFormInput">Correo:</label>
-                                                            <input type="email" class="form-control" id="correo-insert" name="correo-inser" placeholder="Nombre" maxlength="40">
+                                                            <input type="email" class="form-control" id="correo-insert" placeholder="ejemplo@gmail.com" name="correo-inser"  maxlength="40">
                                                             
                                                             
                                                             <label  for="inlineFormInputGroup">Usuario:</label>
-                                                            <input type="text" class="form-control " id="usuario-insert" name="usuario-insert" placeholder="Apellido paterno" maxlength="90">
+                                                            <input type="text" class="form-control " id="usuario-insert" name="usuario-insert"  maxlength="90">
 
                                                             <label  for="inlineFormInputGroup">contraseña:</label>
-                                                            <input type="password" class="form-control  " id="password-insert" name="password-insert"  placeholder="Apellido materno"maxlength="100">
+                                                            <input type="password" class="form-control  " id="password-insert" name="password-insert"  maxlength="100">
                                                          
                                                         </div>
                                                     </div>
